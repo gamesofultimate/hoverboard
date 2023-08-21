@@ -1,0 +1,26 @@
+{
+    "configurations": [
+      {
+        "type": "node-terminal",
+        "name": "Hoverboard: Build Client",
+        "request": "launch",
+        "command": "ultimate-games build client",
+        "cwd": "${workspaceFolder}"
+      },
+      {
+        "type": "node-terminal",
+        "name": "Hoverboard: Run Server",
+        "request": "launch",
+        "command": "ultimate-games build server -r",
+        "cwd": "${workspaceFolder}"
+      },
+      {
+        "type": "node-terminal",
+        "name": "ultimate-games dev",
+        "request": "launch",
+        "command": "ultimate-games dev",
+        "cwd": "${workspaceFolder}"
+      }
+    ]
+  }
+  

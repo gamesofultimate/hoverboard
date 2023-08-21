@@ -1,0 +1,2 @@
+[registries]
+ultimate-shared = { index = "https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git" }

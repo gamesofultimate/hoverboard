@@ -1,0 +1,12 @@
+{
+  "name": "@ultimate-games/hoverboard",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build:client": "ultimate-games build client",
+    "build:server": "ultimate-games build server",
+    "run:server": "ultimate-games run server -r",
+    "frontend:local": "ultimate-games dev"
+  }
+}

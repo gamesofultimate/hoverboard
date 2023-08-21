@@ -1,0 +1,162 @@
+{
+  "config": {
+    "name": "Hoverboard",
+    "bloom": {
+      "threshold": 1,
+      "knee": 0.1,
+      "enabled": true,
+      "hdr": true
+    },
+    "dof": {
+      "focus_point": 5,
+      "focus_scale": 0.4,
+      "radius_scale": 1,
+      "enabled": false
+    },
+    "ssao": {
+      "enabled": false,
+      "scale": 4,
+      "radius": 4,
+      "bias": 0.03
+    },
+    "ambient": {
+      "intensity": 0.55,
+      "fog": 0.001
+    },
+    "physics": {
+      "color": [
+        1,
+        0,
+        0
+      ]
+    },
+    "shadows": {
+      "num_cascade_layers": 4,
+      "shadow_multiplier": 5,
+      "debug_paint_cascades": false
+    },
+    "debug": {
+      "empty_shapes": false,
+      "shadow": false,
+      "lighting": false,
+      "physics": true
+    },
+    "camera": {
+      "fovy": {
+        "value": 0.7853982
+      },
+      "znear": 0.1,
+      "zfar": 75
+    },
+    "id": "8d0a44bb-da92-4a1b-babe-64d95931837c"
+  },
+  "scene": {
+    "entities": {
+      "03254284-e1b6-4f40-9e8f-f8fa4cf0deeb": {
+        "id": {
+          "id": "03254284-e1b6-4f40-9e8f-f8fa4cf0deeb",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Ground"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "model": {
+          "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73"
+        }
+      },
+      "374d9586-8d80-407f-9a19-47790402b3af": {
+        "id": {
+          "id": "374d9586-8d80-407f-9a19-47790402b3af",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Sky"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "sky": {
+          "dynamic": {
+            "id": "123f9457-4476-48e4-adba-c2ba616fe2e2",
+            "intensity": 0.75,
+            "turbidity": 2,
+            "azimuth": {
+              "value": 0
+            },
+            "inclination": {
+              "value": 1.045
+            }
+          }
+        },
+        "light": {
+          "directional": {
+            "radiance": [
+              1,
+              1,
+              1
+            ],
+            "azimuth": {
+              "value": 2
+            },
+            "inclination": {
+              "value": 1.5707
+            },
+            "intensity": 1.1,
+            "should_cast_shadows": true,
+            "are_shadows_soft": true
+          }
+        }
+      }
+    },
+    "trimeshes": {},
+    "models": {
+      "5ed70cd6-7c92-4683-89f8-28818afd9e73": {
+        "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73",
+        "maxInstances": 10,
+        "source": "models/cube/cube.gltf",
+        "submeshes": []
+      }
+    },
+    "textures": {},
+    "terrains": {},
+    "particles": {},
+    "animations": {},
+    "dynamicBackgrounds": {
+      "123f9457-4476-48e4-adba-c2ba616fe2e2": {
+        "id": "123f9457-4476-48e4-adba-c2ba616fe2e2"
+      }
+    },
+    "hdrs": {}
+  }
+}

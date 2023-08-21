@@ -1,0 +1,68 @@
+# You must change these to your own details.
+[package]
+name = "hoverboard"
+description = "My super awesome Rust, WebAssembly, and Webpack project!"
+version = "0.1.0"
+authors = ["You <you@example.com>"]
+categories = ["wasm"]
+readme = "README.md"
+edition = "2018"
+
+[features]
+client-side-only = []
+
+[lib]
+name = "hoverboard"
+path = "src/main.rs"
+crate-type = ["cdylib"]
+
+[[bin]]
+name = "hoverboard_server"
+path = "src/main.rs"
+
+[profile.dev.package.rapier3d]
+opt-level = 3
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[dependencies]
+# networking = { version = "0.6.1", registry = "ultimate-shared" }
+# rsl = { version = "0.2.1", registry = "ultimate-shared" }
+# engine = { version = "0.2.3", registry = "ultimate-shared" }
+networking = { path = "../../networking" }
+rsl = { path = "../../rsl" }
+engine = { path = "../../engine" }
+
+log = "0.4.6"
+fix-hidden-lifetime-bug = "0.2.4"
+uuid = { version = "1.4.0", features = ["serde", "v4", "wasm-bindgen"] }
+async-trait = "0.1.13"
+serde = { version = "1.0.124", features = ["derive"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tokio = { version = "1.18.2", default-features = false, features = [
+  "io-util",
+  "rt",
+  "time",
+  "fs",
+  "macros",
+  "net",
+  "tracing",
+] }
+env_logger = "0.8"
+dotenv = "0.15.0"
+nalgebra = { version = "0.32.0", features = ["serde-serialize", "bytemuck"] }
+rapier3d = { version = "0.17.2", features = ["wasm-bindgen"] }
+num_cpus = "1.13.1"
+rand = "0.8.5"
+chrono = "0.4.20"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+nalgebra = { version = "0.32.0", features = ["serde-serialize", "bytemuck"] }
+rapier3d = { version = "0.17.2", features = ["wasm-bindgen", "simd-stable"] }
+instant = "0.1"
+num_cpus = "1.13.1"
+wasm-logger = "0.2.0"
+wasm-bindgen = "0.2.87"
+wasm-bindgen-futures = "0.4.31"
