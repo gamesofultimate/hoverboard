@@ -1,40 +1,33 @@
-use nalgebra::{Vector3, Point3, Isometry3, Unit};
 use engine::{
   application::{
+    components::{CameraComponent, IdComponent, LightComponent, TransformComponent},
     scene::Scene,
-    components::{
-      TransformComponent,
-      LightComponent,
-      CameraComponent,
-      IdComponent,
-    },
   },
-  systems::{
-    System, Inventory, Backpack, Initializable,
-    rendering::CameraConfig,
-  },
+  systems::{rendering::CameraConfig, Backpack, Initializable, Inventory, System},
   utils::units::Radian,
 };
+use nalgebra::{Isometry3, Point3, Unit, Vector3};
 
-pub struct CameraSystem {
-}
+pub struct CameraSystem {}
 
 impl Initializable for CameraSystem {
   fn initialize(_: &Inventory) -> Self {
-    Self {
-    }
+    Self {}
   }
 }
 
 impl System for CameraSystem {
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
-    for (_, (id, transform, camera)) in &mut scene.query::<(&IdComponent, &TransformComponent, &CameraComponent)>() {
-      if !id.is_self { continue }
+    for (_, (id, transform, camera)) in
+      &mut scene.query::<(&IdComponent, &TransformComponent, &CameraComponent)>()
+    {
+      if !id.is_self {
+        continue;
+      }
 
       let eye_direction = transform.get_euler_direction();
-      log::info!("camera system called");
 
-      let offset = (eye_direction.into_inner() * -0.45) + Vector3::new(0.0, 0.3, 0.0);
+      let offset = (eye_direction.into_inner() * -20.) + Vector3::new(0.0, 3.0, 0.0);
       let character_position = Point3::from(transform.translation + Vector3::new(0.0, 0.05, 0.0));
       let camera_position = Point3::from(transform.translation + offset);
       let isometry = Isometry3::look_at_rh(&camera_position, &character_position, &Vector3::y());
