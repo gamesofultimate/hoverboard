@@ -4,7 +4,7 @@ use engine::application::devices::{Devices, KeyboardKey, MouseButton, MouseEvent
 use engine::systems::input::Input;
 use nalgebra::{Vector2, Vector3};
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct PlayerInput {
   pub direction_vector: Vector3<f32>,
   pub mouse_delta: Vector2<f32>,
@@ -30,7 +30,6 @@ impl Input for PlayerInput {
     self.direction_vector = Vector3::zeros();
     self.mouse_delta = Vector2::zeros();
     self.mouse_position = Vector2::zeros();
-    log::info!("reset");
   }
 
   fn from_devices(&mut self, device: &mut Devices) {
@@ -69,13 +68,10 @@ impl Input for PlayerInput {
 
     for key in device.iter_keyboard() {
       match key {
-        // KeyboardKey::E => self.up = 1.0,
-        // KeyboardKey::Q => self.up = -1.0,
-        KeyboardKey::D => self.direction_vector.x = 1.0,
-        KeyboardKey::A => self.direction_vector.x = -1.0,
-        KeyboardKey::W => self.direction_vector.z = 1.0,
-        KeyboardKey::S => self.direction_vector.z = -1.0,
-        KeyboardKey::Space => self.direction_vector.y = 1.0,
+        KeyboardKey::D | KeyboardKey::Right => self.direction_vector.x = 1.0,
+        KeyboardKey::A | KeyboardKey::Left => self.direction_vector.x = -1.0,
+        KeyboardKey::W | KeyboardKey::Up => self.direction_vector.z = 1.0,
+        KeyboardKey::S | KeyboardKey::Down => self.direction_vector.z = -1.0,
         _ => {}
       }
     }
@@ -99,8 +95,6 @@ impl Input for PlayerInput {
         self.mouse_delta.y = gamepad.right_joystick.y;
       }
     }
-
-    //log::info!("{:} {:}, {:} {:}", &self.right, self.forward, self.delta.x, self.delta.y);
 
     for event in device.window.iter_events() {
       match event {

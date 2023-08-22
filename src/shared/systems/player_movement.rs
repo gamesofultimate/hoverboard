@@ -45,6 +45,12 @@ impl Initializable for PlayerMovementSystem {
 
 //  Get reference to
 impl System for PlayerMovementSystem {
+  fn attach(&mut self, _: &Scene, backpack: &mut Backpack) {
+    if let Some(physics) = backpack.get_mut::<PhysicsConfig>() {
+      physics.gravity = Vector3::new(0.0, 0.0, 0.0);
+    }
+  }
+
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     // let delta = backpack.get::<Time>().unwrap();
 

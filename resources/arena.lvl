@@ -180,7 +180,56 @@
           ]
         },
         "animation": null,
-        "physics": null,
+        "physics": {
+          "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
+          "debug": false,
+          "delta_translation": [
+            0,
+            0,
+            0
+          ],
+          "delta_rotation": [
+            0,
+            0,
+            0
+          ],
+          "joint": {
+            "id": "fe21aeb0-f225-4db0-8205-fac1a2f38006",
+            "offset": [
+              0,
+              0,
+              0
+            ],
+            "name": "New Joint",
+            "config": null,
+            "joints": [],
+            "body": {
+              "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
+              "dynamic_type": "dynamic",
+              "collider_type": {
+                "cube": {
+                  "width": 1,
+                  "height": 1,
+                  "length": 1
+                }
+              },
+              "density": 1,
+              "friction": 1,
+              "restitution": 1,
+              "ccd": false,
+              "allow_translation": [
+                true,
+                true,
+                true
+              ],
+              "allow_rotation": [
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        },
         "sky": null,
         "model": {
           "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
