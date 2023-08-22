@@ -32,8 +32,9 @@ impl System for CameraSystem {
       if !id.is_self { continue }
 
       let eye_direction = transform.get_euler_direction();
-      
-      let offset = (eye_direction.into_inner() * -0.45) + Vector3::new(0.0, 0.15, 0.0);
+      log::info!("camera system called");
+
+      let offset = (eye_direction.into_inner() * -0.45) + Vector3::new(0.0, 0.3, 0.0);
       let character_position = Point3::from(transform.translation + Vector3::new(0.0, 0.05, 0.0));
       let camera_position = Point3::from(transform.translation + offset);
       let isometry = Isometry3::look_at_rh(&camera_position, &character_position, &Vector3::y());
@@ -55,4 +56,3 @@ impl System for CameraSystem {
     }
   }
 }
-

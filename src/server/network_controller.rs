@@ -30,8 +30,8 @@ use engine::{
 
 #[derive(Debug, Eq, PartialEq, Hash)]
 enum ModelNames {
-  Foxy,
   Spectator,
+  Player,
 }
 
 pub struct NetworkController {
@@ -129,9 +129,9 @@ impl ChannelEvents for NetworkController {
           log::info!("creating prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::Spectator, prefab.clone());
         }
-        "foxy" => {
-          log::info!("creating foxy prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::Foxy, prefab.clone());
+        "Player" => {
+          log::info!("creating player prefab: {:?}", prefab.tag.name);
+          self.prefabs.insert(ModelNames::Player, prefab.clone());
         }
         "arena-collider" => {
           log::info!("receiving entity {:?}", prefab.tag.name);
@@ -165,25 +165,10 @@ impl ChannelEvents for NetworkController {
   }
 
   fn on_player_joined(&mut self, scene: &mut Scene, backpack: &mut Backpack, entity: Entity, player_id: PlayerId, username: String, protocol: Protocol) {
-    let mut prefab: Prefab = self.prefabs.get(&ModelNames::Foxy).unwrap().clone();
+    let mut prefab: Prefab = self.prefabs.get(&ModelNames::Player).unwrap().clone();
     log::info!("Player joined! New prefab: {:#?}", &prefab);
 
-    let mut spawn_index = 0;
-    for (index, assigned_spawn) in self.assigned_spawns.iter_mut().enumerate() {
-      if *assigned_spawn == None {
-        *assigned_spawn = Some(player_id);
-        spawn_index = index;
-        break;
-      }
-    }
-
-    let spawn = self.spawn_points[spawn_index];
-
     prefab.id.id = *player_id;
-    if let Some(mut transform) = &mut prefab.transform {
-      transform.translation = spawn.translation;
-      transform.rotation = spawn.rotation;
-    }
 
     prefab.unpack(scene, &entity);
     self.sync_world(scene, &player_id);
@@ -215,4 +200,3 @@ impl ChannelEvents for NetworkController {
     let _ = scene.despawn(entity);
   }
 }
-

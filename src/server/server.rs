@@ -390,9 +390,9 @@ impl Layer for ArenaLayer {
             log::info!("creating entity: {:?}", prefab.tag.name);
             self.prefabs.insert(ModelNames::Spectator, prefab.clone());
           }
-          "foxy" => {
+          "Player" => {
             log::info!("creating entity: {:?}", prefab.tag.name);
-            self.prefabs.insert(ModelNames::Foxy, prefab.clone());
+            self.prefabs.insert(ModelNames::Player, prefab.clone());
           }
           _ => {
             log::info!("creating entity {:?}", prefab.tag.name);

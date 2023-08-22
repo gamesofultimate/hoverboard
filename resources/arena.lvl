@@ -46,7 +46,7 @@
         "value": 0.7853982
       },
       "znear": 0.1,
-      "zfar": 75
+      "zfar": 1000
     },
     "id": "8d0a44bb-da92-4a1b-babe-64d95931837c"
   },
@@ -72,14 +72,27 @@
             0
           ],
           "scale": [
-            1,
-            1,
-            1
+            20,
+            0.25,
+            20
           ]
         },
+        "animation": null,
+        "physics": null,
+        "sky": null,
         "model": {
-          "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73"
-        }
+          "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73",
+          "submesh_id": null
+        },
+        "prefab": null,
+        "terrain": null,
+        "input": null,
+        "camera": null,
+        "text": null,
+        "light": null,
+        "parent": null,
+        "audio_listener": null,
+        "particle": null
       },
       "374d9586-8d80-407f-9a19-47790402b3af": {
         "id": {
@@ -92,7 +105,7 @@
         "transform": {
           "translation": [
             0,
-            0,
+            0.9058732,
             0
           ],
           "rotation": [
@@ -106,19 +119,20 @@
             1
           ]
         },
+        "animation": null,
+        "physics": null,
         "sky": {
           "dynamic": {
             "id": "123f9457-4476-48e4-adba-c2ba616fe2e2",
-            "intensity": 0.75,
-            "turbidity": 2,
-            "azimuth": {
-              "value": 0
-            },
-            "inclination": {
-              "value": 1.045
-            }
+            "turbidity": 2
           }
         },
+        "model": null,
+        "prefab": null,
+        "terrain": null,
+        "input": null,
+        "camera": null,
+        "text": null,
         "light": {
           "directional": {
             "radiance": [
@@ -126,17 +140,97 @@
               1,
               1
             ],
+            "intensity": 1.1,
             "azimuth": {
               "value": 2
             },
             "inclination": {
               "value": 1.5707
             },
-            "intensity": 1.1,
-            "should_cast_shadows": true,
-            "are_shadows_soft": true
+            "should_cast_shadows": true
           }
-        }
+        },
+        "parent": null,
+        "audio_listener": null,
+        "particle": null
+      },
+      "20ac3835-718c-4465-b0bc-4fbde2408abf": {
+        "id": {
+          "id": "20ac3835-718c-4465-b0bc-4fbde2408abf",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Player"
+        },
+        "transform": {
+          "translation": [
+            0,
+            1.25,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "animation": null,
+        "physics": null,
+        "sky": null,
+        "model": {
+          "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
+          "submesh_id": null
+        },
+        "prefab": null,
+        "terrain": null,
+        "input": {
+          "yaw": 0,
+          "pitch": 0,
+          "update": [
+            1,
+            0,
+            0
+          ],
+          "front": [
+            1,
+            0,
+            0
+          ],
+          "walk": [
+            1,
+            0,
+            0
+          ],
+          "sensitivity": 0.01,
+          "speed": {
+            "kilometers": 2,
+            "hours": 1
+          }
+        },
+        "camera": {
+          "perspective": {
+            "id": "38c208e6-c8f4-4f28-9e82-aadaae529147",
+            "width": 1920,
+            "height": 1080,
+            "fovy": {
+              "value": 0.7853982
+            },
+            "znear": 0.1,
+            "zfar": 1000,
+            "primary": true,
+            "fixed_aspect_ratio": false
+          }
+        },
+        "text": null,
+        "light": null,
+        "parent": null,
+        "audio_listener": null,
+        "particle": null
       }
     },
     "trimeshes": {},
@@ -145,6 +239,12 @@
         "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73",
         "maxInstances": 10,
         "source": "models/cube/cube.gltf",
+        "submeshes": []
+      },
+      "23836ae6-14c5-4153-b6d1-c513e2dbd099": {
+        "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
+        "maxInstances": 10,
+        "source": "models/sphere/sphere.gltf",
         "submeshes": []
       }
     },
