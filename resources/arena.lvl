@@ -52,48 +52,6 @@
   },
   "scene": {
     "entities": {
-      "03254284-e1b6-4f40-9e8f-f8fa4cf0deeb": {
-        "id": {
-          "id": "03254284-e1b6-4f40-9e8f-f8fa4cf0deeb",
-          "is_self": false
-        },
-        "tag": {
-          "name": "Ground"
-        },
-        "transform": {
-          "translation": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            20,
-            0.25,
-            20
-          ]
-        },
-        "animation": null,
-        "physics": null,
-        "sky": null,
-        "model": {
-          "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73",
-          "submesh_id": null
-        },
-        "prefab": null,
-        "terrain": null,
-        "input": null,
-        "camera": null,
-        "text": null,
-        "light": null,
-        "parent": null,
-        "audio_listener": null,
-        "particle": null
-      },
       "374d9586-8d80-407f-9a19-47790402b3af": {
         "id": {
           "id": "374d9586-8d80-407f-9a19-47790402b3af",
@@ -165,8 +123,8 @@
         "transform": {
           "translation": [
             0,
-            1.25,
-            0
+            3.5142372,
+            -20.188549
           ],
           "rotation": [
             0,
@@ -174,15 +132,14 @@
             0
           ],
           "scale": [
-            1,
-            1,
-            1
+            0.5,
+            0.5,
+            0.5
           ]
         },
         "animation": null,
         "physics": {
           "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
-          "debug": false,
           "delta_translation": [
             0,
             0,
@@ -193,16 +150,15 @@
             0,
             0
           ],
+          "debug": false,
           "joint": {
             "id": "fe21aeb0-f225-4db0-8205-fac1a2f38006",
+            "name": "New Joint",
             "offset": [
               0,
               0,
               0
             ],
-            "name": "New Joint",
-            "config": null,
-            "joints": [],
             "body": {
               "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
               "dynamic_type": "dynamic",
@@ -216,7 +172,6 @@
               "density": 1,
               "friction": 1,
               "restitution": 1,
-              "ccd": false,
               "allow_translation": [
                 true,
                 true,
@@ -226,8 +181,11 @@
                 true,
                 true,
                 true
-              ]
-            }
+              ],
+              "ccd": false
+            },
+            "config": null,
+            "joints": []
           }
         },
         "sky": null,
@@ -280,6 +238,64 @@
         "parent": null,
         "audio_listener": null,
         "particle": null
+      },
+      "83c6b180-378f-42a8-b951-01e0026d16a2": {
+        "id": {
+          "id": "83c6b180-378f-42a8-b951-01e0026d16a2",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Track"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "model": {
+          "id": "a009c964-dbec-4646-9db6-567f2c64b9a1"
+        }
+      },
+      "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
+        "id": {
+          "id": "a26c6bc9-1220-41bb-9d34-474b34ba2d2f",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Track Collider"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "model": {
+          "id": "39c3f816-f444-4377-9698-1100bbd4b7d8"
+        }
       }
     },
     "trimeshes": {},
@@ -294,6 +310,18 @@
         "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
         "maxInstances": 10,
         "source": "models/sphere/sphere.gltf",
+        "submeshes": []
+      },
+      "39c3f816-f444-4377-9698-1100bbd4b7d8": {
+        "id": "39c3f816-f444-4377-9698-1100bbd4b7d8",
+        "maxInstances": 10,
+        "source": "collisions/track_collision/C_TrackTest.gltf",
+        "submeshes": []
+      },
+      "a009c964-dbec-4646-9db6-567f2c64b9a1": {
+        "id": "a009c964-dbec-4646-9db6-567f2c64b9a1",
+        "maxInstances": 10,
+        "source": "models/track/M_TrackTest.gltf",
         "submeshes": []
       }
     },
