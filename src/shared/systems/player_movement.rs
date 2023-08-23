@@ -5,10 +5,12 @@ use std::char::MAX;
 use crate::shared::components::PlayerMovementComponent;
 
 use engine::application::components::{
-  AnimationComponent, InputComponent, PhysicsComponent, TransformComponent,
+  AnimationComponent, InputComponent, PhysicsComponent, TagComponent, TransformComponent,
 };
+use engine::Entity;
 
 use crate::shared::input::PlayerInput;
+use engine::application::components::IdComponent;
 use engine::application::input::DefaultInput;
 use engine::application::scene::Scene;
 use engine::systems::{
@@ -36,6 +38,7 @@ pub struct PlayerMovementSystem {
   physics: PhysicsController,
   canvas: CanvasController,
   running_time: f32,
+  initialized: bool,
 }
 
 impl Initializable for PlayerMovementSystem {
@@ -49,19 +52,34 @@ impl Initializable for PlayerMovementSystem {
       physics,
       canvas,
       running_time: 0.0,
+      initialized: false,
     }
   }
 }
 
 //  Get reference to
 impl System for PlayerMovementSystem {
-  fn attach(&mut self, _: &Scene, backpack: &mut Backpack) {
+  fn attach(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     if let Some(physics) = backpack.get_mut::<PhysicsConfig>() {
       physics.gravity = Vector3::new(0.0, 0.0, 0.0);
     }
   }
 
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
+    if self.initialized == false {
+      let mut entity = Entity::DANGLING;
+
+      for (current_entity, (id, tag)) in scene.query_mut::<(&IdComponent, &TagComponent)>() {
+        if id.is_self {
+          entity = current_entity;
+          self.initialized = true;
+          break;
+        }
+      }
+
+      scene.add_component(entity, PlayerMovementComponent::new());
+    }
+
     let delta_time = **backpack.get::<Time>().unwrap();
 
     let input = match self.inputs.receive() {
@@ -89,7 +107,7 @@ impl PlayerMovementSystem {
 
   fn handle_input(&self, scene: &mut Scene, input: PlayerInput, delta_time: f32) {
     for (_, (_, mut physics, transform)) in scene.query_mut::<(
-      &InputComponent,
+      &PlayerMovementComponent,
       &mut PhysicsComponent,
       &mut TransformComponent,
     )>() {
@@ -108,7 +126,7 @@ impl PlayerMovementSystem {
 
   fn handle_hover(&self, scene: &mut Scene, delta_time: f32) {
     for (_, (_, mut physics, transform)) in scene.query_mut::<(
-      &InputComponent,
+      &PlayerMovementComponent,
       &mut PhysicsComponent,
       &mut TransformComponent,
     )>() {
