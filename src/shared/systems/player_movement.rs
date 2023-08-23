@@ -1,5 +1,9 @@
 #![cfg(target_arch = "wasm32")]
 
+use std::char::MAX;
+
+use crate::shared::components::PlayerMovementComponent;
+
 use engine::application::components::{
   AnimationComponent, InputComponent, PhysicsComponent, TransformComponent,
 };
@@ -19,17 +23,19 @@ use engine::utils::units::Time;
 use nalgebra::Rotation3;
 
 use nalgebra::Vector3;
-// you will need a PlayerMovementSystem which uses the values from your PlayerMovementComponent and updates
-// the PhysicsSystem (comes from the engine through the Backpack concept, IIRC)
 
 const PLAYER_MAX_VELOCITY: f32 = 10.00;
-const PLAYER_ACCELERATION: f32 = 500.00;
-const ROTATION_SPEED: f32 = 45.0;
+const PLAYER_ACCELERATION: f32 = 1000.00;
+const ROTATION_SPEED: f32 = 90.0;
+const MIN_HEIGHT_FROM_SURFACE: f32 = 0.02;
+const MAX_HEIGHT_FROM_SURFACE: f32 = 0.5;
+const HEIGHT_FROM_SURFACE_SPEED: f32 = 4.0;
 
 pub struct PlayerMovementSystem {
   inputs: InputsReader<PlayerInput>,
   physics: PhysicsController,
   canvas: CanvasController,
+  running_time: f32,
 }
 
 impl Initializable for PlayerMovementSystem {
@@ -42,6 +48,7 @@ impl Initializable for PlayerMovementSystem {
       inputs,
       physics,
       canvas,
+      running_time: 0.0,
     }
   }
 }
@@ -65,6 +72,22 @@ impl System for PlayerMovementSystem {
       None => return,
     };
 
+    self.handle_input(scene, input, delta_time);
+    self.handle_hover(scene, delta_time);
+
+    self.running_time += delta_time;
+  }
+}
+
+impl PlayerMovementSystem {
+  fn capture_mouse(&mut self, input: &PlayerInput) {
+    if input.left_click && !input.mouse_lock {
+      self.canvas.capture_mouse(true);
+      // self.canvas.request_fullscreen(true);
+    }
+  }
+
+  fn handle_input(&self, scene: &mut Scene, input: PlayerInput, delta_time: f32) {
     for (_, (_, mut physics, transform)) in scene.query_mut::<(
       &InputComponent,
       &mut PhysicsComponent,
@@ -82,13 +105,19 @@ impl System for PlayerMovementSystem {
       physics.delta_rotation.y = ROTATION_SPEED * delta_time * right_input;
     }
   }
-}
 
-impl PlayerMovementSystem {
-  fn capture_mouse(&mut self, input: &PlayerInput) {
-    if input.left_click && !input.mouse_lock {
-      self.canvas.capture_mouse(true);
-      // self.canvas.request_fullscreen(true);
+  fn handle_hover(&self, scene: &mut Scene, delta_time: f32) {
+    for (_, (_, mut physics, transform)) in scene.query_mut::<(
+      &InputComponent,
+      &mut PhysicsComponent,
+      &mut TransformComponent,
+    )>() {
+      let height_delta = MAX_HEIGHT_FROM_SURFACE - MIN_HEIGHT_FROM_SURFACE;
+
+      // TODO: this needs to take into account the player's entire rotation, not just y
+      physics.delta_translation.y = f32::sin(self.running_time * HEIGHT_FROM_SURFACE_SPEED)
+        * height_delta
+        + MIN_HEIGHT_FROM_SURFACE;
     }
   }
 }
