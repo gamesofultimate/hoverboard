@@ -1,0 +1,16 @@
+{
+    "id": "a0209a0e-b5dd-4457-b869-03c834268057",
+    "name": "Smoke",
+    "particle_type": {
+        "type": "quad",
+        "texture_id": "51223134-95d7-4784-a7e2-fe0a0f3acf0a",
+        "rotation_speed": 1.0
+    },
+    "transparency": "replace",
+    "max_particles": 50,
+    "birth_rate": 0.1,
+    "gravity": [0.0, 1.0, 0.0],
+    "angle": [0.0, 6.28318530718, 0.0, 3.14],
+    "speed": [0.1, 1.0],
+    "life": [1.0, 2.0]
+}

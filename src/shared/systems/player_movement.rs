@@ -26,12 +26,13 @@ use nalgebra::Rotation3;
 
 use nalgebra::Vector3;
 
-const PLAYER_MAX_VELOCITY: f32 = 10.00;
-const PLAYER_ACCELERATION: f32 = 1000.00;
-const ROTATION_SPEED: f32 = 90.0;
+const PLAYER_MAX_VELOCITY: f32 = 2000.0;
+const PLAYER_ACCELERATION: f32 = 200.0;
+const ROTATION_SPEED: f32 = 110.0;
 const MIN_HEIGHT_FROM_SURFACE: f32 = 0.02;
-const MAX_HEIGHT_FROM_SURFACE: f32 = 0.5;
-const HEIGHT_FROM_SURFACE_SPEED: f32 = 4.0;
+const MAX_HEIGHT_FROM_SURFACE: f32 = 0.35;
+const HEIGHT_FROM_SURFACE_SPEED: f32 = 6.0;
+const PLAYER_DECELERATION: f32 = 150.0;
 
 pub struct PlayerMovementSystem {
   inputs: InputsReader<PlayerInput>,
@@ -39,6 +40,7 @@ pub struct PlayerMovementSystem {
   canvas: CanvasController,
   running_time: f32,
   initialized: bool,
+  current_velocity: f32,
 }
 
 impl Initializable for PlayerMovementSystem {
@@ -53,11 +55,11 @@ impl Initializable for PlayerMovementSystem {
       canvas,
       running_time: 0.0,
       initialized: false,
+      current_velocity: 0.0,
     }
   }
 }
 
-//  Get reference to
 impl System for PlayerMovementSystem {
   fn attach(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     if let Some(physics) = backpack.get_mut::<PhysicsConfig>() {
@@ -68,7 +70,6 @@ impl System for PlayerMovementSystem {
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     if self.initialized == false {
       let mut entity = Entity::DANGLING;
-
       for (current_entity, (id, tag)) in scene.query_mut::<(&IdComponent, &TagComponent)>() {
         if id.is_self {
           entity = current_entity;
@@ -76,7 +77,6 @@ impl System for PlayerMovementSystem {
           break;
         }
       }
-
       scene.add_component(entity, PlayerMovementComponent::new());
     }
 
@@ -98,6 +98,20 @@ impl System for PlayerMovementSystem {
 }
 
 impl PlayerMovementSystem {
+  fn accelerate(&mut self, forward_input: f32, delta_time: f32) {
+    if forward_input != 0.0 {
+      if self.current_velocity >= PLAYER_MAX_VELOCITY {
+        self.current_velocity = PLAYER_MAX_VELOCITY;
+      } else if self.current_velocity <= -PLAYER_MAX_VELOCITY {
+        self.current_velocity = -PLAYER_MAX_VELOCITY;
+      } else {
+        self.current_velocity += PLAYER_ACCELERATION * delta_time * forward_input;
+      }
+    } else {
+      self.decelerate(delta_time);
+    }
+  }
+
   fn capture_mouse(&mut self, input: &PlayerInput) {
     if input.left_click && !input.mouse_lock {
       self.canvas.capture_mouse(true);
@@ -105,7 +119,21 @@ impl PlayerMovementSystem {
     }
   }
 
-  fn handle_input(&self, scene: &mut Scene, input: PlayerInput, delta_time: f32) {
+  fn decelerate(&mut self, delta_time: f32) {
+    if self.current_velocity > 0.0 {
+      self.current_velocity -= PLAYER_DECELERATION * delta_time;
+      if self.current_velocity < 0.0 {
+        self.current_velocity = 0.0;
+      }
+    } else if self.current_velocity < 0.0 {
+      self.current_velocity += PLAYER_DECELERATION * delta_time;
+      if self.current_velocity > 0.0 {
+        self.current_velocity = 0.0;
+      }
+    }
+  }
+
+  fn handle_input(&mut self, scene: &mut Scene, input: PlayerInput, delta_time: f32) {
     for (_, (_, mut physics, transform)) in scene.query_mut::<(
       &PlayerMovementComponent,
       &mut PhysicsComponent,
@@ -116,9 +144,9 @@ impl PlayerMovementSystem {
 
       let transform_direction = transform.get_euler_direction();
 
+      self.accelerate(forward_input, delta_time);
       physics.delta_translation =
-        transform_direction.into_inner() * PLAYER_ACCELERATION * delta_time * forward_input;
-
+        transform_direction.into_inner() * self.current_velocity * delta_time * forward_input;
       // TODO: this needs to take into account the player's entire rotation, not just y
       physics.delta_rotation.y = ROTATION_SPEED * delta_time * right_input;
     }
@@ -130,6 +158,11 @@ impl PlayerMovementSystem {
       &mut PhysicsComponent,
       &mut TransformComponent,
     )>() {
+      // I thought maybe cancelling "hover" effect would help with the jittering, but it doesn't seem to?
+      if self.current_velocity < 0.001 && self.current_velocity > -0.001 {
+        return;
+      }
+
       let height_delta = MAX_HEIGHT_FROM_SURFACE - MIN_HEIGHT_FROM_SURFACE;
 
       // TODO: this needs to take into account the player's entire rotation, not just y

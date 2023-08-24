@@ -293,8 +293,89 @@
             1
           ]
         },
+        "animation": null,
+        "physics": null,
+        "sky": null,
         "model": {
-          "id": "39c3f816-f444-4377-9698-1100bbd4b7d8"
+          "id": "39c3f816-f444-4377-9698-1100bbd4b7d8",
+          "submesh_id": null
+        },
+        "prefab": null,
+        "terrain": null,
+        "input": null,
+        "camera": null,
+        "text": null,
+        "light": null,
+        "parent": null,
+        "audio_listener": null,
+        "particle": null
+      },
+      "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5": {
+        "id": {
+          "id": "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Smoke Bomb"
+        },
+        "transform": {
+          "translation": [
+            -7.212969,
+            4.9382415,
+            -20.298517
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "animation": null,
+        "physics": null,
+        "sky": null,
+        "model": null,
+        "prefab": null,
+        "terrain": null,
+        "input": null,
+        "camera": null,
+        "text": null,
+        "light": null,
+        "parent": null,
+        "audio_listener": null,
+        "particle": {
+          "id": "7474a0b3-422b-492d-b1f6-d1fe7a8fa5d1",
+          "assetId": "a0209a0e-b5dd-4457-b869-03c834268057"
+        }
+      },
+      "a76d2a4a-2fa3-4df0-a677-185aa68d1670": {
+        "id": {
+          "id": "a76d2a4a-2fa3-4df0-a677-185aa68d1670",
+          "is_self": false
+        },
+        "tag": {
+          "name": "Smoke Bomb 2"
+        },
+        "transform": {
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
         }
       }
     },
@@ -325,9 +406,19 @@
         "submeshes": []
       }
     },
-    "textures": {},
+    "textures": {
+      "51223134-95d7-4784-a7e2-fe0a0f3acf0a": {
+        "id": "51223134-95d7-4784-a7e2-fe0a0f3acf0a",
+        "source": "textures/smoke-small.png"
+      }
+    },
     "terrains": {},
-    "particles": {},
+    "particles": {
+      "a0209a0e-b5dd-4457-b869-03c834268057": {
+        "id": "a0209a0e-b5dd-4457-b869-03c834268057",
+        "source": "effects/smoke.ptl"
+      }
+    },
     "animations": {},
     "dynamicBackgrounds": {
       "123f9457-4476-48e4-adba-c2ba616fe2e2": {
