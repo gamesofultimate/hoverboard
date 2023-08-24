@@ -1,0 +1,6 @@
+#!/bin/bash
+
+SHA=$(git rev-parse HEAD | cut -c1-10)
+BRANCH=$(git rev-parse --abbrev-ref "$BUILDKITE_BRANCH" | tr '/' '_')
+
+ultimate-games publish -g hoverboard -b $BRANCH -s $SHA
