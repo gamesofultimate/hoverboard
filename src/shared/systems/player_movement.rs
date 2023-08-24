@@ -22,7 +22,8 @@ use engine::systems::{
 use engine::utils::units::Kph;
 use engine::utils::units::Time;
 
-use nalgebra::Rotation3;
+use rapier3d::prelude::QueryFilter;
+use rapier3d::prelude::Ray;
 
 use nalgebra::Vector3;
 
@@ -36,7 +37,7 @@ const PLAYER_DECELERATION: f32 = 150.0;
 
 pub struct PlayerMovementSystem {
   inputs: InputsReader<PlayerInput>,
-  physics: PhysicsController,
+  physics_controller: PhysicsController,
   canvas: CanvasController,
   running_time: f32,
   initialized: bool,
@@ -46,12 +47,12 @@ pub struct PlayerMovementSystem {
 impl Initializable for PlayerMovementSystem {
   fn initialize(inventory: &Inventory) -> Self {
     let inputs = inventory.get::<InputsReader<PlayerInput>>().clone();
-    let physics = inventory.get::<PhysicsController>().clone();
+    let physics_controller = inventory.get::<PhysicsController>().clone();
     let canvas = inventory.get::<CanvasController>().clone();
 
     Self {
       inputs,
-      physics,
+      physics_controller,
       canvas,
       running_time: 0.0,
       initialized: false,
@@ -134,7 +135,7 @@ impl PlayerMovementSystem {
   }
 
   fn handle_input(&mut self, scene: &mut Scene, input: PlayerInput, delta_time: f32) {
-    for (_, (_, mut physics, transform)) in scene.query_mut::<(
+    for (_, (player_component, mut physics, transform)) in scene.query_mut::<(
       &PlayerMovementComponent,
       &mut PhysicsComponent,
       &mut TransformComponent,
@@ -147,14 +148,16 @@ impl PlayerMovementSystem {
       self.accelerate(forward_input, delta_time);
       physics.delta_translation =
         transform_direction.into_inner() * self.current_velocity * delta_time * forward_input;
+
       // TODO: this needs to take into account the player's entire rotation, not just y
-      physics.delta_rotation.y = ROTATION_SPEED * delta_time * right_input;
+      let player_up = player_component.up_vector;
+      physics.delta_rotation = player_up * ROTATION_SPEED * delta_time * right_input;
     }
   }
 
-  fn handle_hover(&self, scene: &mut Scene, delta_time: f32) {
-    for (_, (_, mut physics, transform)) in scene.query_mut::<(
-      &PlayerMovementComponent,
+  fn handle_hover(&mut self, scene: &mut Scene, delta_time: f32) {
+    for (entity, (mut player_component, mut physics, transform)) in scene.query_mut::<(
+      &mut PlayerMovementComponent,
       &mut PhysicsComponent,
       &mut TransformComponent,
     )>() {
@@ -165,10 +168,32 @@ impl PlayerMovementSystem {
 
       let height_delta = MAX_HEIGHT_FROM_SURFACE - MIN_HEIGHT_FROM_SURFACE;
 
+      let player_up = player_component.up_vector;
+
+      let ray = Ray::new(transform.translation.into(), -player_up);
+      let toi = 1.00;
+      let solid = true;
+
+      if let Some(rigidbody_handle) = self
+        .physics_controller
+        .get_rigid_body(&physics.joint.body.id)
+      {
+        let filter = QueryFilter::default();
+        let filter = filter.exclude_rigid_body(rigidbody_handle);
+
+        if let Some((_, collider, intersection)) =
+          self.physics_controller.raycast(&ray, toi, solid, filter)
+        {
+          log::info!("intersection: {:?}", intersection);
+          player_component.up_vector = intersection.normal;
+        }
+      }
+
       // TODO: this needs to take into account the player's entire rotation, not just y
-      physics.delta_translation.y = f32::sin(self.running_time * HEIGHT_FROM_SURFACE_SPEED)
-        * height_delta
-        + MIN_HEIGHT_FROM_SURFACE;
+      let player_up = player_component.up_vector;
+      physics.delta_translation += player_up
+        * (f32::sin(self.running_time * HEIGHT_FROM_SURFACE_SPEED) * height_delta
+          + MIN_HEIGHT_FROM_SURFACE);
     }
   }
 }
