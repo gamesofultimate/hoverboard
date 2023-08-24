@@ -122,19 +122,19 @@
         },
         "transform": {
           "translation": [
-            0,
-            3.5142372,
+            -29.682293,
+            6.5846,
             -20.188549
           ],
           "rotation": [
             0,
-            0,
+            2.5,
             0
           ],
           "scale": [
             0.5,
-            0.5,
-            0.5
+            0.1,
+            1.25
           ]
         },
         "animation": null,
@@ -265,7 +265,7 @@
           ]
         },
         "model": {
-          "id": "a009c964-dbec-4646-9db6-567f2c64b9a1"
+          "id": "b1bdbbd7-b91e-4d50-a89c-92028eac278e"
         }
       },
       "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
@@ -294,12 +294,56 @@
           ]
         },
         "animation": null,
-        "physics": null,
-        "sky": null,
-        "model": {
-          "id": "39c3f816-f444-4377-9698-1100bbd4b7d8",
-          "submesh_id": null
+        "physics": {
+          "id": "a8b88255-120d-4c97-b28c-19d0dc2512d7",
+          "debug": false,
+          "delta_translation": [
+            0,
+            0,
+            0
+          ],
+          "delta_rotation": [
+            0,
+            0,
+            0
+          ],
+          "joint": {
+            "id": "bc878291-d21b-4a8b-a000-00612f309ddb",
+            "offset": [
+              0,
+              0,
+              0
+            ],
+            "name": "New Joint",
+            "config": null,
+            "joints": [],
+            "body": {
+              "id": "2b5e5204-4d23-448e-938b-756d029f2676",
+              "dynamic_type": "static",
+              "collider_type": {
+                "trimesh": {
+                  "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5"
+                }
+              },
+              "density": 1,
+              "friction": 1,
+              "restitution": 1,
+              "ccd": false,
+              "allow_translation": [
+                true,
+                true,
+                true
+              ],
+              "allow_rotation": [
+                true,
+                true,
+                true
+              ]
+            }
+          }
         },
+        "sky": null,
+        "model": null,
         "prefab": null,
         "terrain": null,
         "input": null,
@@ -403,6 +447,18 @@
         "id": "a009c964-dbec-4646-9db6-567f2c64b9a1",
         "maxInstances": 10,
         "source": "models/track/M_TrackTest.gltf",
+        "submeshes": []
+      },
+      "b1bdbbd7-b91e-4d50-a89c-92028eac278e": {
+        "id": "b1bdbbd7-b91e-4d50-a89c-92028eac278e",
+        "maxInstances": 10,
+        "source": "models/Track02/M_Track02.gltf",
+        "submeshes": []
+      },
+      "609ff27f-a8f3-42ac-8d15-26d089191dd5": {
+        "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
+        "maxInstances": 10,
+        "source": "models/Track02/Collision/C_Track02.gltf",
         "submeshes": []
       }
     },
