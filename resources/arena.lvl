@@ -122,9 +122,9 @@
         },
         "transform": {
           "translation": [
-            -29.682293,
-            6.5846,
-            -20.188549
+            -26.16449,
+            8.025758,
+            -29.69717
           ],
           "rotation": [
             0,
@@ -133,8 +133,8 @@
           ],
           "scale": [
             0.5,
-            0.1,
-            1.25
+            0.5,
+            0.5
           ]
         },
         "animation": null,
@@ -163,10 +163,8 @@
               "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
               "dynamic_type": "dynamic",
               "collider_type": {
-                "cube": {
-                  "width": 1,
-                  "height": 1,
-                  "length": 1
+                "sphere": {
+                  "radius": 1
                 }
               },
               "density": 1,
@@ -235,38 +233,11 @@
         },
         "text": null,
         "light": null,
-        "parent": null,
+        "parent": {
+          "id": "cc86964e-608c-4d81-8093-daef50e3e372"
+        },
         "audio_listener": null,
         "particle": null
-      },
-      "83c6b180-378f-42a8-b951-01e0026d16a2": {
-        "id": {
-          "id": "83c6b180-378f-42a8-b951-01e0026d16a2",
-          "is_self": false
-        },
-        "tag": {
-          "name": "Track"
-        },
-        "transform": {
-          "translation": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "model": {
-          "id": "b1bdbbd7-b91e-4d50-a89c-92028eac278e"
-        }
       },
       "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
         "id": {
@@ -296,7 +267,6 @@
         "animation": null,
         "physics": {
           "id": "a8b88255-120d-4c97-b28c-19d0dc2512d7",
-          "debug": false,
           "delta_translation": [
             0,
             0,
@@ -307,16 +277,15 @@
             0,
             0
           ],
+          "debug": true,
           "joint": {
             "id": "bc878291-d21b-4a8b-a000-00612f309ddb",
+            "name": "New Joint",
             "offset": [
               0,
               0,
               0
             ],
-            "name": "New Joint",
-            "config": null,
-            "joints": [],
             "body": {
               "id": "2b5e5204-4d23-448e-938b-756d029f2676",
               "dynamic_type": "static",
@@ -326,9 +295,8 @@
                 }
               },
               "density": 1,
-              "friction": 1,
+              "friction": 0.2,
               "restitution": 1,
-              "ccd": false,
               "allow_translation": [
                 true,
                 true,
@@ -338,12 +306,18 @@
                 true,
                 true,
                 true
-              ]
-            }
+              ],
+              "ccd": false
+            },
+            "config": null,
+            "joints": []
           }
         },
         "sky": null,
-        "model": null,
+        "model": {
+          "id": "47a1bc42-f20e-49f9-9735-e0d88a3516ff",
+          "submesh_id": null
+        },
         "prefab": null,
         "terrain": null,
         "input": null,
@@ -354,9 +328,9 @@
         "audio_listener": null,
         "particle": null
       },
-      "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5": {
+      "d172eb91-8441-4671-97b4-570401e87402": {
         "id": {
-          "id": "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5",
+          "id": "d172eb91-8441-4671-97b4-570401e87402",
           "is_self": false
         },
         "tag": {
@@ -364,12 +338,12 @@
         },
         "transform": {
           "translation": [
-            -7.212969,
-            4.9382415,
-            -20.298517
+            -26.538816,
+            6.2005706,
+            -31.13695
           ],
           "rotation": [
-            0,
+            1.4839846,
             0,
             0
           ],
@@ -392,26 +366,26 @@
         "parent": null,
         "audio_listener": null,
         "particle": {
-          "id": "7474a0b3-422b-492d-b1f6-d1fe7a8fa5d1",
+          "id": "6abf71cc-9002-4adc-9666-a293229478c1",
           "assetId": "a0209a0e-b5dd-4457-b869-03c834268057"
         }
       },
-      "a76d2a4a-2fa3-4df0-a677-185aa68d1670": {
+      "bf1fac55-4093-47a5-976c-839a6663179b": {
         "id": {
-          "id": "a76d2a4a-2fa3-4df0-a677-185aa68d1670",
+          "id": "bf1fac55-4093-47a5-976c-839a6663179b",
           "is_self": false
         },
         "tag": {
-          "name": "Smoke Bomb 2"
+          "name": "Hoverboard"
         },
         "transform": {
           "translation": [
-            0,
-            0,
-            0
+            -26.139317,
+            7.161028,
+            -29.71503
           ],
           "rotation": [
-            0,
+            -0.0587912,
             0,
             0
           ],
@@ -420,10 +394,33 @@
             1,
             1
           ]
-        }
+        },
+        "animation": null,
+        "physics": null,
+        "sky": null,
+        "model": {
+          "id": "f147afca-c941-40c0-8af5-e28afdaf5120",
+          "submesh_id": null
+        },
+        "prefab": null,
+        "terrain": null,
+        "input": null,
+        "camera": null,
+        "text": null,
+        "light": null,
+        "parent": {
+          "id": "cc86964e-608c-4d81-8093-daef50e3e372"
+        },
+        "audio_listener": null,
+        "particle": null
       }
     },
-    "trimeshes": {},
+    "trimeshes": {
+      "609ff27f-a8f3-42ac-8d15-26d089191dd5": {
+        "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
+        "source": "models/Track02/Collision/C_Track02.gltf"
+      }
+    },
     "models": {
       "5ed70cd6-7c92-4683-89f8-28818afd9e73": {
         "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73",
@@ -459,6 +456,24 @@
         "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
         "maxInstances": 10,
         "source": "models/Track02/Collision/C_Track02.gltf",
+        "submeshes": []
+      },
+      "69dbc41a-086e-4162-a121-2a1f641bd600": {
+        "id": "69dbc41a-086e-4162-a121-2a1f641bd600",
+        "maxInstances": 10,
+        "source": "models/track/M_Track02.gltf",
+        "submeshes": []
+      },
+      "47a1bc42-f20e-49f9-9735-e0d88a3516ff": {
+        "id": "47a1bc42-f20e-49f9-9735-e0d88a3516ff",
+        "maxInstances": 10,
+        "source": "collisions/track_collider/C_Track02.gltf",
+        "submeshes": []
+      },
+      "f147afca-c941-40c0-8af5-e28afdaf5120": {
+        "id": "f147afca-c941-40c0-8af5-e28afdaf5120",
+        "maxInstances": 10,
+        "source": "models/hoverboard/hoverboard.gltf",
         "submeshes": []
       }
     },
