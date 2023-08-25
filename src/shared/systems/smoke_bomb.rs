@@ -25,3 +25,7 @@ use engine::utils::units::Time;
 use nalgebra::Rotation3;
 
 use nalgebra::Vector3;
+
+pub struct SmokeBomb {
+
+}

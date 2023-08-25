@@ -31,6 +31,7 @@ use uuid::Uuid;
 enum ModelNames {
   Spectator,
   Player,
+  SmokeBomb,
 }
 
 pub struct NetworkController {
@@ -112,6 +113,7 @@ impl ChannelEvents for NetworkController {
     log::info!("Connected to sidecar!!!");
 
     let gamefile = Gamefile::from_file(&self.download_sender, "arena.lvl");
+    log::info!("Gamefile: {:#?}", &gamefile);
 
     self.config = Some(gamefile.config.clone());
 
@@ -133,6 +135,10 @@ impl ChannelEvents for NetworkController {
         "Player" => {
           log::info!("creating player prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::Player, prefab.clone());
+        }
+        "Smoke Bomb" => {
+          log::info!("creating smoke bomb prefab: {:?}", prefab.tag.name);
+          self.prefabs.insert(ModelNames::SmokeBomb, prefgit aab.clone());
         }
         _ => {
           log::info!("receiving entity {:?}", prefab.tag.name);
