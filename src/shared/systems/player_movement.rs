@@ -9,7 +9,7 @@ use engine::application::components::{
 };
 use engine::Entity;
 
-use crate::shared::input::PlayerInput;
+use crate::shared::input::{Actions, PlayerInput};
 use engine::application::components::IdComponent;
 use engine::application::input::DefaultInput;
 use engine::application::scene::Scene;

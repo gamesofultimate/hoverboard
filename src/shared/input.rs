@@ -1,8 +1,14 @@
 #![cfg(target_arch = "wasm32")]
-
 use engine::application::devices::{Devices, KeyboardKey, MouseButton, MouseEvent, WindowEvent};
 use engine::systems::input::Input;
 use nalgebra::{Vector2, Vector3};
+use std::collections::HashSet;
+
+#[derive(Clone, Debug, Eq, PartialEq, Hash)]
+pub enum Actions {
+  Brake,
+  SmokeBomb,
+}
 
 #[derive(Clone, Debug)]
 pub struct PlayerInput {
@@ -17,6 +23,7 @@ pub struct PlayerInput {
   pub canvas: (u32, u32),
   pub pixel_ratio: f32,
   pub keyboard: Vec<KeyboardKey>,
+  pub actions: HashSet<Actions>,
 }
 
 impl Default for PlayerInput {
@@ -30,6 +37,7 @@ impl Input for PlayerInput {
     self.direction_vector = Vector3::zeros();
     self.mouse_delta = Vector2::zeros();
     self.mouse_position = Vector2::zeros();
+    self.actions.clear();
   }
 
   fn from_devices(&mut self, device: &mut Devices) {
@@ -72,6 +80,12 @@ impl Input for PlayerInput {
         KeyboardKey::A | KeyboardKey::Left => self.direction_vector.x = -1.0,
         KeyboardKey::W | KeyboardKey::Up => self.direction_vector.z = 1.0,
         KeyboardKey::S | KeyboardKey::Down => self.direction_vector.z = -1.0,
+        KeyboardKey::E => {
+          self.actions.insert(Actions::SmokeBomb);
+        }
+        KeyboardKey::Space => {
+          self.actions.insert(Actions::Brake);
+        }
         _ => {}
       }
     }
@@ -121,6 +135,7 @@ impl PlayerInput {
       canvas: (0, 0),
       pixel_ratio: 1.0,
       keyboard: Vec::new(),
+      actions: HashSet::new(),
     }
   }
 }

@@ -9,6 +9,7 @@ use engine::{
     input::TrustedInput,
     scene::{Scene, UnpackEntity},
   },
+  networking::{connection::Protocol, messages::PlayerId},
   renderer::resources::{
     animation::{Animation, AnimationDefinition, AnimationId},
     background::DynamicDefinition,
@@ -23,7 +24,6 @@ use engine::{
   Entity,
 };
 use nalgebra::Vector3;
-use networking::connection::{PlayerId, Protocol};
 use std::collections::HashMap;
 use uuid::Uuid;
 
@@ -32,6 +32,25 @@ enum ModelNames {
   Spectator,
   Player,
   SmokeBomb,
+}
+
+impl ModelNames {
+  fn from_str(name: &str) -> Self {
+    match name {
+      "Spectator" => Self::Spectator,
+      "Player" => Self::Player,
+      "Smoke Bomb" => Self::SmokeBomb,
+      _ => panic!("Unknown model name: {}", name),
+    }
+  }
+
+  fn to_str(&self) -> &str {
+    match self {
+      Self::Spectator => "Spectator",
+      Self::Player => "Player",
+      Self::SmokeBomb => "Smoke Bomb",
+    }
+  }
 }
 
 pub struct NetworkController {
@@ -138,7 +157,7 @@ impl ChannelEvents for NetworkController {
         }
         "Smoke Bomb" => {
           log::info!("creating smoke bomb prefab: {:?}", prefab.tag.name);
-          self.prefabs.insert(ModelNames::SmokeBomb, prefgit aab.clone());
+          self.prefabs.insert(ModelNames::SmokeBomb, prefab.clone());
         }
         _ => {
           log::info!("receiving entity {:?}", prefab.tag.name);

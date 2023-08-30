@@ -410,7 +410,9 @@
         "camera": null,
         "text": null,
         "light": null,
-        "parent": null,
+        "parent": {
+          "id": "20ac3835-718c-4465-b0bc-4fbde2408abf"
+        },
         "audio_listener": null,
         "particle": null
       }
