@@ -20,10 +20,10 @@ use engine::{
     network::{ChannelEvents, ClientSender},
     Initializable, Inventory,
   },
+  networking::connection::{PlayerId, Protocol},
   Entity,
 };
 use nalgebra::Vector3;
-use networking::connection::{PlayerId, Protocol};
 use std::collections::HashMap;
 use uuid::Uuid;
 
@@ -98,6 +98,7 @@ impl NetworkController {
       *player_id,
       TrustedInput::Assets {
         assets: definitions,
+        trigger_loading: true,
       },
     );
     self

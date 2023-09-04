@@ -27,12 +27,8 @@ opt-level = 3
 wasm-opt = false
 
 [dependencies]
-# networking = { version = "0.6.1", registry = "ultimate-shared" }
-# rsl = { version = "0.2.1", registry = "ultimate-shared" }
-# engine = { version = "0.2.3", registry = "ultimate-shared" }
-networking = { path = "../../networking" }
-rsl = { path = "../../rsl" }
-engine = { path = "../../engine" }
+engine = { version = "0.3.9", registry = "ultimate-shared" }
+#engine = { path = "../../engine" }
 
 log = "0.4.6"
 fix-hidden-lifetime-bug = "0.2.4"

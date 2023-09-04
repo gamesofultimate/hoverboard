@@ -33,15 +33,12 @@ impl System for CameraSystem {
       let isometry = Isometry3::look_at_rh(&camera_position, &character_position, &Vector3::y());
       let view = isometry.to_homogeneous();
 
-      if let CameraComponent::Perspective { width, height, fovy, zfar, znear, .. } = camera
+      if let CameraComponent::Perspective { fovy, zfar, znear, .. } = camera
         && let Some(camera) = backpack.get_mut::<CameraConfig>()
       {
-        camera.dimensions.width = *width as u32;
-        camera.dimensions.height = *height as u32;
         camera.fovy = *fovy;
         camera.znear = *znear;
         camera.zfar = *zfar;
-        //camera.view = view;
         camera.translation = transform.translation + offset;
         camera.front = eye_direction;
         camera.up = Unit::new_normalize(Vector3::y());
