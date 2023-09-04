@@ -1,6 +1,20 @@
 #!/bin/bash
 
+set -e
+
+ENVIRONMENT=$1
+TARGETDIR="/var/lib/buildkite-agent/cache/mayhem/client" 
 SHA=$(git rev-parse HEAD | cut -c1-10)
 BRANCH=$(git rev-parse --abbrev-ref "$BUILDKITE_BRANCH" | tr '/' '_')
 
+echo "Building"
+
+echo "Buildkite: $BUILDKITE_AGENT_NAME"
+echo "Environment: $ENVIRONMENT"
+echo "Target: $TARGETDIR"
+echo "Branch: $BRANCH"
+echo "Sha: $SHA"
+
+ultimate-games build client
+ultimate-games build server
 ultimate-games publish -g hoverboard -b $BRANCH -s $SHA

@@ -1,19 +1,6 @@
 steps:
-  - label: 'build - client'
-    key: 'build-client'
-    command: 'ultimate-games build client'
-    agents:
-      os: 'linux'
-
-  - label: 'build - server'
-    key: 'build-server'
-    command: 'ultimate-games build server'
-    agents:
-      os: 'linux'
-
-  - label: 'deploy'
+  - label: 'build and distribute'
+    key: 'build'
     command: 'scripts/builder'
     agents:
       os: 'linux'
-    depends_on: ['build-client', 'build-server']
-    branches: 'master hotfix/*'
