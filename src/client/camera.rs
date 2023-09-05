@@ -21,13 +21,11 @@ impl System for CameraSystem {
     for (_, (id, transform, camera)) in
       &mut scene.query::<(&IdComponent, &TransformComponent, &CameraComponent)>()
     {
-      if !id.is_self {
-        continue;
-      }
+      if !id.is_self { continue; }
 
       let eye_direction = transform.get_euler_direction();
 
-      let offset = (eye_direction.into_inner() * -20.) + Vector3::new(0.0, 3.0, 0.0);
+      let offset = (eye_direction.into_inner() * -5.) + Vector3::new(0.0, 0.75, 0.0);
       let character_position = Point3::from(transform.translation + Vector3::new(0.0, 0.05, 0.0));
       let camera_position = Point3::from(transform.translation + offset);
       let isometry = Isometry3::look_at_rh(&camera_position, &character_position, &Vector3::y());

@@ -32,7 +32,7 @@
     },
     "shadows": {
       "num_cascade_layers": 4,
-      "shadow_multiplier": 5,
+      "shadow_multiplier": 1,
       "debug_paint_cascades": false
     },
     "debug": {
@@ -63,7 +63,7 @@
         "transform": {
           "translation": [
             0,
-            0.9058732,
+            0,
             0
           ],
           "rotation": [
@@ -103,7 +103,7 @@
               "value": 2
             },
             "inclination": {
-              "value": 1.5707
+              "value": 1.1
             },
             "should_cast_shadows": true
           }
@@ -122,22 +122,32 @@
         },
         "transform": {
           "translation": [
-            -29.682293,
-            6.5846,
-            -20.188549
+            -43.359653,
+            3.8453279,
+            -0.087192774
           ],
           "rotation": [
             0,
-            2.5,
+            0,
             0
           ],
           "scale": [
-            0.5,
-            0.1,
-            1.25
+            20,
+            20,
+            20
           ]
         },
-        "animation": null,
+        "animation": {
+          "animations": [
+            {
+              "id": "f7645325-4819-40e0-8ccb-0604d64f7224",
+              "rate": 1,
+              "weight": 1,
+              "current": 0,
+              "state": "playing"
+            }
+          ]
+        },
         "physics": {
           "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
           "delta_translation": [
@@ -190,7 +200,7 @@
         },
         "sky": null,
         "model": {
-          "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
+          "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
           "submesh_id": null
         },
         "prefab": null,
@@ -222,8 +232,6 @@
         "camera": {
           "perspective": {
             "id": "38c208e6-c8f4-4f28-9e82-aadaae529147",
-            "width": 1920,
-            "height": 1080,
             "fovy": {
               "value": 0.7853982
             },
@@ -265,7 +273,7 @@
           ]
         },
         "model": {
-          "id": "b1bdbbd7-b91e-4d50-a89c-92028eac278e"
+          "id": "d67e187c-4ba4-46e4-8442-a7ddc1501046"
         }
       },
       "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
@@ -460,6 +468,18 @@
         "maxInstances": 10,
         "source": "models/Track02/Collision/C_Track02.gltf",
         "submeshes": []
+      },
+      "d67e187c-4ba4-46e4-8442-a7ddc1501046": {
+        "id": "d67e187c-4ba4-46e4-8442-a7ddc1501046",
+        "maxInstances": 10,
+        "source": "models/TrackGrouped/SM_TrackGrouped.gltf",
+        "submeshes": []
+      },
+      "4fa40667-f8c0-4e39-b19b-3f86decf3f06": {
+        "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
+        "maxInstances": 10,
+        "source": "models/skysurfer/skysurfer.gltf",
+        "submeshes": []
       }
     },
     "textures": {
@@ -475,7 +495,14 @@
         "source": "effects/smoke.ptl"
       }
     },
-    "animations": {},
+    "animations": {
+      "f7645325-4819-40e0-8ccb-0604d64f7224": {
+        "id": "f7645325-4819-40e0-8ccb-0604d64f7224",
+        "source": "models/skysurfer/skysurfer.gltf",
+        "name": "Skysurfer_BS|Layers_Test|Baked frames",
+        "index": 0
+      }
+    },
     "dynamicBackgrounds": {
       "123f9457-4476-48e4-adba-c2ba616fe2e2": {
         "id": "123f9457-4476-48e4-adba-c2ba616fe2e2"

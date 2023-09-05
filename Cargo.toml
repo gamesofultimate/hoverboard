@@ -27,7 +27,7 @@ opt-level = 3
 wasm-opt = false
 
 [dependencies]
-engine = { version = "0.3.9", registry = "ultimate-shared" }
+engine = { version = "0.3.11", registry = "ultimate-shared" }
 #engine = { path = "../../engine" }
 
 log = "0.4.6"
