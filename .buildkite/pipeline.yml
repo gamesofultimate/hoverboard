@@ -1,0 +1,6 @@
+steps:
+  - label: 'build and distribute'
+    key: 'build'
+    command: 'scripts/builder'
+    agents:
+      os: 'linux'
