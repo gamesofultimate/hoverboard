@@ -4,9 +4,9 @@ use crate::shared::input::PlayerInput;
 
 use engine::{
   application::{
-    components::{IdComponent, LightComponent},
+    components::LightComponent,
     // input::DefaultInput,
-    scene::{Scene, UnpackEntity},
+    scene::{Scene, UnpackEntity, IdComponent},
   },
   systems::{
     input::{CanvasController, InputsReader},

@@ -4,7 +4,6 @@ mod world;
 use engine::{
   application::{
     bus::BrowserBus,
-    components::Prefab,
     input::{DefaultInput, TrustedInput},
   },
   systems::{
@@ -58,7 +57,7 @@ pub async fn main(
   //   tcp_url,
   // );
 
-  let hdr = HdrMultiplayerPipeline::<Prefab, PlayerInput>::new(
+  let hdr = HdrMultiplayerPipeline::<PlayerInput>::new(
     assets_location,
     session_id,
     access_token,
@@ -67,7 +66,7 @@ pub async fn main(
   );
 
   runner.attach_plugin(hdr);
-  runner.attach_system::<world::WorldSystem>();
+  //runner.attach_system::<world::WorldSystem>();
   runner.attach_system::<camera::CameraSystem>();
   runner.attach_system::<PlayerMovementSystem>();
   runner.run().await;

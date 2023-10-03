@@ -1,7 +1,7 @@
 use engine::{
   application::{
-    components::{CameraComponent, IdComponent, LightComponent, TransformComponent},
-    scene::Scene,
+    components::{CameraComponent, LightComponent},
+    scene::{Scene, IdComponent, TransformComponent},
   },
   systems::{rendering::CameraConfig, Backpack, Initializable, Inventory, System},
   utils::units::Radian,
@@ -21,8 +21,6 @@ impl System for CameraSystem {
     for (_, (id, transform, camera)) in
       &mut scene.query::<(&IdComponent, &TransformComponent, &CameraComponent)>()
     {
-      if !id.is_self { continue; }
-
       let eye_direction = transform.get_euler_direction();
 
       let offset = (eye_direction.into_inner() * -5.) + Vector3::new(0.0, 0.75, 0.0);

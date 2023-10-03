@@ -1,372 +1,277 @@
 {
+  "version": "v0.0.2",
   "config": {
+    "id": "8d0a44bb-da92-4a1b-babe-64d95931837c",
     "name": "Hoverboard",
     "bloom": {
-      "threshold": 1,
+      "threshold": 1.0,
       "knee": 0.1,
       "enabled": true,
       "hdr": true
     },
     "dof": {
-      "focus_point": 5,
+      "focus_point": 5.0,
       "focus_scale": 0.4,
-      "radius_scale": 1,
+      "radius_scale": 1.0,
       "enabled": false
     },
     "ssao": {
       "enabled": false,
-      "scale": 4,
-      "radius": 4,
+      "scale": 4.0,
+      "radius": 4.0,
       "bias": 0.03
     },
     "ambient": {
       "intensity": 0.55,
       "fog": 0.001
     },
+    "shadows": {
+      "num_cascade_layers": 4.0,
+      "shadow_multiplier": 2.0,
+      "debug_paint_cascades": false
+    },
     "physics": {
       "color": [
-        1,
-        0,
-        0
+        1.0,
+        0.0,
+        0.0
       ]
-    },
-    "shadows": {
-      "num_cascade_layers": 4,
-      "shadow_multiplier": 1,
-      "debug_paint_cascades": false
     },
     "debug": {
       "empty_shapes": false,
       "shadow": false,
-      "lighting": false,
-      "physics": true
+      "physics": true,
+      "lighting": false
     },
     "camera": {
       "fovy": {
         "value": 0.7853982
       },
       "znear": 0.1,
-      "zfar": 1000
-    },
-    "id": "8d0a44bb-da92-4a1b-babe-64d95931837c"
+      "zfar": 1000.0
+    }
   },
   "scene": {
-    "entities": {
-      "374d9586-8d80-407f-9a19-47790402b3af": {
-        "id": {
-          "id": "374d9586-8d80-407f-9a19-47790402b3af",
-          "is_self": false
-        },
-        "tag": {
-          "name": "Sky"
-        },
-        "transform": {
-          "translation": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "animation": null,
-        "physics": null,
-        "sky": {
-          "dynamic": {
-            "id": "123f9457-4476-48e4-adba-c2ba616fe2e2",
-            "turbidity": 2
-          }
-        },
-        "model": null,
-        "prefab": null,
-        "terrain": null,
-        "input": null,
-        "camera": null,
-        "text": null,
-        "light": {
-          "directional": {
-            "radiance": [
-              1,
-              1,
-              1
-            ],
-            "intensity": 1.1,
-            "azimuth": {
-              "value": 2
-            },
-            "inclination": {
-              "value": 1.1
-            },
-            "should_cast_shadows": true
-          }
-        },
-        "parent": null,
-        "audio_listener": null,
-        "particle": null
-      },
+    "prefabs": {
       "20ac3835-718c-4465-b0bc-4fbde2408abf": {
-        "id": {
-          "id": "20ac3835-718c-4465-b0bc-4fbde2408abf",
-          "is_self": false
-        },
+        "id": "20ac3835-718c-4465-b0bc-4fbde2408abf",
         "tag": {
           "name": "Player"
         },
         "transform": {
           "translation": [
             -43.359653,
-            3.8453279,
-            -0.087192774
+            4.7379694,
+            -25.460999
           ],
           "rotation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "scale": [
-            20,
-            20,
-            20
+            20.0,
+            20.0,
+            20.0
           ]
         },
-        "animation": {
-          "animations": [
-            {
-              "id": "f7645325-4819-40e0-8ccb-0604d64f7224",
-              "rate": 1,
-              "weight": 1,
-              "current": 0,
-              "state": "playing"
-            }
-          ]
-        },
-        "physics": {
-          "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
-          "delta_translation": [
-            0,
-            0,
-            0
-          ],
-          "delta_rotation": [
-            0,
-            0,
-            0
-          ],
-          "debug": false,
-          "joint": {
-            "id": "fe21aeb0-f225-4db0-8205-fac1a2f38006",
-            "name": "New Joint",
-            "offset": [
-              0,
-              0,
-              0
-            ],
-            "body": {
-              "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
-              "dynamic_type": "dynamic",
-              "collider_type": {
-                "cube": {
-                  "width": 1,
-                  "height": 1,
-                  "length": 1
+        "components": [
+          {
+            "AnimationComponent": {
+              "animations": [
+                {
+                  "id": "f7645325-4819-40e0-8ccb-0604d64f7224",
+                  "rate": 1.0,
+                  "weight": 1.0,
+                  "current": 0.0,
+                  "state": "Playing"
                 }
-              },
-              "density": 1,
-              "friction": 1,
-              "restitution": 1,
-              "allow_translation": [
-                true,
-                true,
-                true
+              ]
+            }
+          },
+          {
+            "PhysicsComponent": {
+              "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
+              "delta_translation": [
+                0.0,
+                0.0,
+                0.0
               ],
-              "allow_rotation": [
-                true,
-                true,
-                true
+              "delta_rotation": [
+                0.0,
+                0.0,
+                0.0
               ],
-              "ccd": false
-            },
-            "config": null,
-            "joints": []
+              "debug": false,
+              "joint": {
+                "id": "fe21aeb0-f225-4db0-8205-fac1a2f38006",
+                "name": "New Joint",
+                "offset": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "body": {
+                  "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
+                  "dynamic_type": "Dynamic",
+                  "collider_type": {
+                    "Cube": {
+                      "width": 1.0,
+                      "height": 1.0,
+                      "length": 1.0
+                    }
+                  },
+                  "density": 1.0,
+                  "friction": 1.0,
+                  "restitution": 1.0,
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false
+                },
+                "config": null,
+                "joints": []
+              }
+            }
+          },
+          {
+            "ModelComponent": {
+              "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
+              "submesh_id": null
+            }
+          },
+          {
+            "InputComponent": {
+              "yaw": 0.0,
+              "pitch": 0.0,
+              "front": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "walk": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "sensitivity": 0.01,
+              "speed": {
+                "kilometers": 2.0,
+                "hours": 1.0
+              }
+            }
+          },
+          {
+            "CameraComponent": {
+              "Perspective": {
+                "fovy": {
+                  "value": 0.7853982
+                },
+                "znear": 0.1,
+                "zfar": 1000.0,
+                "primary": true
+              }
+            }
           }
+        ]
+      },
+      "a76d2a4a-2fa3-4df0-a677-185aa68d1670": {
+        "id": "a76d2a4a-2fa3-4df0-a677-185aa68d1670",
+        "tag": {
+          "name": "Smoke Bomb 2"
         },
-        "sky": null,
-        "model": {
-          "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
-          "submesh_id": null
-        },
-        "prefab": null,
-        "terrain": null,
-        "input": {
-          "yaw": 0,
-          "pitch": 0,
-          "update": [
-            1,
-            0,
-            0
+        "transform": {
+          "translation": [
+            0.0,
+            0.0,
+            0.0
           ],
-          "front": [
-            1,
-            0,
-            0
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
           ],
-          "walk": [
-            1,
-            0,
-            0
-          ],
-          "sensitivity": 0.01,
-          "speed": {
-            "kilometers": 2,
-            "hours": 1
-          }
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
         },
-        "camera": {
-          "perspective": {
-            "id": "38c208e6-c8f4-4f28-9e82-aadaae529147",
-            "fovy": {
-              "value": 0.7853982
-            },
-            "znear": 0.1,
-            "zfar": 1000,
-            "primary": true,
-            "fixed_aspect_ratio": false
-          }
-        },
-        "text": null,
-        "light": null,
-        "parent": null,
-        "audio_listener": null,
-        "particle": null
+        "components": []
       },
       "83c6b180-378f-42a8-b951-01e0026d16a2": {
-        "id": {
-          "id": "83c6b180-378f-42a8-b951-01e0026d16a2",
-          "is_self": false
-        },
+        "id": "83c6b180-378f-42a8-b951-01e0026d16a2",
         "tag": {
           "name": "Track"
         },
         "transform": {
           "translation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "rotation": [
-            0,
-            0,
-            0
+            0.0,
+            -0.6845479,
+            0.0
           ],
           "scale": [
-            1,
-            1,
-            1
+            1.0,
+            1.0,
+            1.0
           ]
         },
-        "model": {
-          "id": "d67e187c-4ba4-46e4-8442-a7ddc1501046"
-        }
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "d67e187c-4ba4-46e4-8442-a7ddc1501046",
+              "submesh_id": null
+            }
+          }
+        ]
       },
-      "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
-        "id": {
-          "id": "a26c6bc9-1220-41bb-9d34-474b34ba2d2f",
-          "is_self": false
-        },
+      "374d9586-8d80-407f-9a19-47790402b3af": {
+        "id": "374d9586-8d80-407f-9a19-47790402b3af",
         "tag": {
-          "name": "Track Collider"
+          "name": "Sky"
         },
         "transform": {
           "translation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "rotation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "scale": [
-            1,
-            1,
-            1
+            1.0,
+            1.0,
+            1.0
           ]
         },
-        "animation": null,
-        "physics": {
-          "id": "a8b88255-120d-4c97-b28c-19d0dc2512d7",
-          "debug": false,
-          "delta_translation": [
-            0,
-            0,
-            0
-          ],
-          "delta_rotation": [
-            0,
-            0,
-            0
-          ],
-          "joint": {
-            "id": "bc878291-d21b-4a8b-a000-00612f309ddb",
-            "offset": [
-              0,
-              0,
-              0
-            ],
-            "name": "New Joint",
-            "config": null,
-            "joints": [],
-            "body": {
-              "id": "2b5e5204-4d23-448e-938b-756d029f2676",
-              "dynamic_type": "static",
-              "collider_type": {
-                "trimesh": {
-                  "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5"
-                }
-              },
-              "density": 1,
-              "friction": 1,
-              "restitution": 1,
-              "ccd": false,
-              "allow_translation": [
-                true,
-                true,
-                true
-              ],
-              "allow_rotation": [
-                true,
-                true,
-                true
-              ]
+        "components": [
+          {
+            "SkyLightComponent": {
+              "Dynamic": {
+                "id": "123f9457-4476-48e4-adba-c2ba616fe2e2",
+                "turbidity": 2.0
+              }
             }
           }
-        },
-        "sky": null,
-        "model": null,
-        "prefab": null,
-        "terrain": null,
-        "input": null,
-        "camera": null,
-        "text": null,
-        "light": null,
-        "parent": null,
-        "audio_listener": null,
-        "particle": null
+        ]
       },
       "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5": {
-        "id": {
-          "id": "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5",
-          "is_self": false
-        },
+        "id": "39aee8da-1a8b-4b9d-90fb-3b150c3cf0b5",
         "tag": {
           "name": "Smoke Bomb"
         },
@@ -377,61 +282,127 @@
             -20.298517
           ],
           "rotation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "scale": [
-            1,
-            1,
-            1
+            1.0,
+            1.0,
+            1.0
           ]
         },
-        "animation": null,
-        "physics": null,
-        "sky": null,
-        "model": null,
-        "prefab": null,
-        "terrain": null,
-        "input": null,
-        "camera": null,
-        "text": null,
-        "light": null,
-        "parent": null,
-        "audio_listener": null,
-        "particle": {
-          "id": "7474a0b3-422b-492d-b1f6-d1fe7a8fa5d1",
-          "assetId": "a0209a0e-b5dd-4457-b869-03c834268057"
-        }
+        "components": [
+        ]
       },
-      "a76d2a4a-2fa3-4df0-a677-185aa68d1670": {
-        "id": {
-          "id": "a76d2a4a-2fa3-4df0-a677-185aa68d1670",
-          "is_self": false
-        },
+      "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
+        "id": "a26c6bc9-1220-41bb-9d34-474b34ba2d2f",
         "tag": {
-          "name": "Smoke Bomb 2"
+          "name": "Track Collider"
         },
         "transform": {
           "translation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "rotation": [
-            0,
-            0,
-            0
+            0.0,
+            0.0,
+            0.0
           ],
           "scale": [
-            1,
-            1,
-            1
+            1.0,
+            1.0,
+            1.0
           ]
-        }
+        },
+        "components": [
+          {
+            "PhysicsComponent": {
+              "id": "a8b88255-120d-4c97-b28c-19d0dc2512d7",
+              "delta_translation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "delta_rotation": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "debug": false,
+              "joint": {
+                "id": "bc878291-d21b-4a8b-a000-00612f309ddb",
+                "name": "New Joint",
+                "offset": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "body": {
+                  "id": "2b5e5204-4d23-448e-938b-756d029f2676",
+                  "dynamic_type": "Static",
+                  "collider_type": {
+                    "Trimesh": {
+                      "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5"
+                    }
+                  },
+                  "density": 1.0,
+                  "friction": 1.0,
+                  "restitution": 1.0,
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": false
+                },
+                "config": null,
+                "joints": []
+              }
+            }
+          }
+        ]
+      },
+      "751e6183-9da5-4f5e-86ab-3e09cb28c8b1": {
+        "id": "751e6183-9da5-4f5e-86ab-3e09cb28c8b1",
+        "tag": {
+          "name": "Terrain"
+        },
+        "transform": {
+          "translation": [
+            -250.51534,
+            0.0,
+            -350.0
+          ],
+          "rotation": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "components": [
+          {
+            "TerrainComponent": {
+              "id": "7e03cb03-565b-4626-92ec-582f2e3842e4",
+              "height": 100.0,
+              "tile_half_length": 250.0
+            }
+          }
+        ]
       }
     },
-    "trimeshes": {},
     "models": {
       "5ed70cd6-7c92-4683-89f8-28818afd9e73": {
         "id": "5ed70cd6-7c92-4683-89f8-28818afd9e73",
@@ -439,16 +410,22 @@
         "source": "models/cube/cube.gltf",
         "submeshes": []
       },
-      "23836ae6-14c5-4153-b6d1-c513e2dbd099": {
-        "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
-        "maxInstances": 10,
-        "source": "models/sphere/sphere.gltf",
-        "submeshes": []
-      },
       "39c3f816-f444-4377-9698-1100bbd4b7d8": {
         "id": "39c3f816-f444-4377-9698-1100bbd4b7d8",
         "maxInstances": 10,
         "source": "collisions/track_collision/C_TrackTest.gltf",
+        "submeshes": []
+      },
+      "4fa40667-f8c0-4e39-b19b-3f86decf3f06": {
+        "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
+        "maxInstances": 10,
+        "source": "models/skysurfer/skysurfer.gltf",
+        "submeshes": []
+      },
+      "609ff27f-a8f3-42ac-8d15-26d089191dd5": {
+        "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
+        "maxInstances": 10,
+        "source": "models/Track02/Collision/C_Track02.gltf",
         "submeshes": []
       },
       "a009c964-dbec-4646-9db6-567f2c64b9a1": {
@@ -463,32 +440,26 @@
         "source": "models/Track02/M_Track02.gltf",
         "submeshes": []
       },
-      "609ff27f-a8f3-42ac-8d15-26d089191dd5": {
-        "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
-        "maxInstances": 10,
-        "source": "models/Track02/Collision/C_Track02.gltf",
-        "submeshes": []
-      },
       "d67e187c-4ba4-46e4-8442-a7ddc1501046": {
         "id": "d67e187c-4ba4-46e4-8442-a7ddc1501046",
         "maxInstances": 10,
         "source": "models/TrackGrouped/SM_TrackGrouped.gltf",
         "submeshes": []
       },
-      "4fa40667-f8c0-4e39-b19b-3f86decf3f06": {
-        "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
+      "23836ae6-14c5-4153-b6d1-c513e2dbd099": {
+        "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
         "maxInstances": 10,
-        "source": "models/skysurfer/skysurfer.gltf",
+        "source": "models/sphere/sphere.gltf",
         "submeshes": []
       }
     },
+    "trimeshes": {},
     "textures": {
       "51223134-95d7-4784-a7e2-fe0a0f3acf0a": {
         "id": "51223134-95d7-4784-a7e2-fe0a0f3acf0a",
         "source": "textures/smoke-small.png"
       }
     },
-    "terrains": {},
     "particles": {
       "a0209a0e-b5dd-4457-b869-03c834268057": {
         "id": "a0209a0e-b5dd-4457-b869-03c834268057",
@@ -498,16 +469,54 @@
     "animations": {
       "f7645325-4819-40e0-8ccb-0604d64f7224": {
         "id": "f7645325-4819-40e0-8ccb-0604d64f7224",
+        "index": 0,
         "source": "models/skysurfer/skysurfer.gltf",
-        "name": "Skysurfer_BS|Layers_Test|Baked frames",
-        "index": 0
+        "name": "Skysurfer_BS|Layers_Test|Baked frames"
       }
     },
-    "dynamicBackgrounds": {
+    "terrains": {
+      "7e03cb03-565b-4626-92ec-582f2e3842e4": {
+        "id": "7e03cb03-565b-4626-92ec-582f2e3842e4",
+        "source": "sanddune",
+        "tiles": [
+          {
+            "x": 0,
+            "y": 0,
+            "albedo": "terrains/sanddunes/albedo/terrain.sanddune.albedo.x000.y000.png",
+            "normals": "terrains/sanddunes/normals/terrain.sanddune.normals.x000.y000.png",
+            "height": "terrains/sanddunes/height/terrain.sanddune.height.x000.y000.r32"
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "albedo": "terrains/sanddunes/albedo/terrain.sanddune.albedo.x000.y001.png",
+            "normals": "terrains/sanddunes/normals/terrain.sanddune.normals.x000.y001.png",
+            "height": "terrains/sanddunes/height/terrain.sanddune.height.x000.y001.r32"
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "albedo": "terrains/sanddunes/albedo/terrain.sanddune.albedo.x001.y000.png",
+            "normals": "terrains/sanddunes/normals/terrain.sanddune.normals.x001.y000.png",
+            "height": "terrains/sanddunes/height/terrain.sanddune.height.x001.y000.r32"
+          },
+          {
+            "x": 1,
+            "y": 1,
+            "albedo": "terrains/sanddunes/albedo/terrain.sanddune.albedo.x001.y001.png",
+            "normals": "terrains/sanddunes/normals/terrain.sanddune.normals.x001.y001.png",
+            "height": "terrains/sanddunes/height/terrain.sanddune.height.x001.y001.r32"
+          }
+        ],
+        "triangles": 100
+      }
+    },
+    "dynamic_backgrounds": {
       "123f9457-4476-48e4-adba-c2ba616fe2e2": {
         "id": "123f9457-4476-48e4-adba-c2ba616fe2e2"
       }
     },
-    "hdrs": {}
+    "hdrs": {},
+    "audio": {}
   }
 }

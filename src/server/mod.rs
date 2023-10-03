@@ -11,8 +11,7 @@ use engine::systems::{
 };
 
 use engine::application::{
-  components::Prefab,
-  input::TrustedInput,
+  scene::Prefab,
 };
 
 use crate::{
@@ -32,8 +31,6 @@ pub async fn main() {
   dotenv::dotenv().ok();
   env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
 
-  log::info!("Number of cpus: {:}", num_cpus::get());
-
   let rpc_address = {
     let address = dotenv::var("RPC_ADDRESS").unwrap();
     let port = dotenv::var("RPC_PORT").unwrap();
@@ -48,7 +45,7 @@ pub async fn main() {
     format!("{}:{}", address, port).parse().unwrap()
   };
 
-  let (mut hdr, download_sender) = HdrPipeline::<Prefab, NetworkController>::new("resources", rpc_address, session_address);
+  let (mut hdr, download_sender) = HdrPipeline::<NetworkController>::new("resources", rpc_address, session_address);
 
 
   let mut runner = Scheduler::new(FRAMES_PER_SECOND);

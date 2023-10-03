@@ -20,10 +20,6 @@ test:
       cpu: 200m
       memory: 600M
 build:
-  assets: resources/
-  executables:
-    client: hoverboard
-    server: hoverboard_server
   client:
     assets: resources/
     executable: hoverboard

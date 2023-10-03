@@ -1,0 +1,116 @@
+{ "time": "14:49:04.8639", "level": "INFO", "site": "<no type>.A.LGS.C_Encrypted$::0", "data": "\"C:\\Program Files\\QuadSpinner\\Gaea\\Gaea.Build.exe\" \"C:\\Users\\Felipe Rocha\\Downloads\\gaeaFile\\gameJam1.tor\" --open    --buildlog" }
+{ "time": "14:49:04.9357", "level": "INFO", "site": "<no type>.A.EYS.U_Encrypted$::0", "data": "Version 1.3.2.7" }
+{ "time": "14:49:05.6518", "level": "INFO", "site": "<no type>.A.PIE.W_Encrypted$::0", "data": "Loading cache from C:\\Users\\Felipe Rocha\\Downloads\\gaeaFile\\Caches\\Hard\\gameJam1_911ce332\\ @ Final" }
+{ "time": "14:49:06.5560", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: *Mountain" }
+{ "time": "14:49:06.5820", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:06.5820", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Heightmap" }
+{ "time": "14:49:08.0724", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Heightmap" }
+{ "time": "14:49:08.2379", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SurfTex" }
+{ "time": "14:49:08.4771", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:08.7152", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Soil" }
+{ "time": "14:49:14.2260", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:14.4507", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: RockMap" }
+{ "time": "14:49:14.5632", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Flow" }
+{ "time": "14:49:15.2881", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:15.3171", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:15.4771", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:15.5831", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:15.6971", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Combine" }
+{ "time": "14:49:15.9625", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Normal Map" }
+{ "time": "14:49:16.0355", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Normal Map" }
+{ "time": "14:49:16.2744", "level": "INFO", "site": "<no type>.A.PIE.W_Encrypted$::0", "data": "Loading cache from C:\\Users\\Felipe Rocha\\Downloads\\gaeaFile\\Caches\\Hard\\gameJam1_911ce332\\ @ Final" }
+{ "time": "14:49:17.5101", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: *Mountain" }
+{ "time": "14:49:17.5339", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:17.5339", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Heightmap" }
+{ "time": "14:49:19.5788", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Heightmap" }
+{ "time": "14:49:19.6908", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SurfTex" }
+{ "time": "14:49:19.9107", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:20.1071", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Soil" }
+{ "time": "14:49:25.0517", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:25.2054", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: RockMap" }
+{ "time": "14:49:25.3021", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Flow" }
+{ "time": "14:49:25.9937", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:26.0178", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:26.2022", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:26.3027", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:26.4611", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Combine" }
+{ "time": "14:49:26.6295", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Normal Map" }
+{ "time": "14:49:26.6659", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Normal Map" }
+{ "time": "14:49:26.8199", "level": "INFO", "site": "<no type>.A.PIE.W_Encrypted$::0", "data": "Loading cache from C:\\Users\\Felipe Rocha\\Downloads\\gaeaFile\\Caches\\Hard\\gameJam1_911ce332\\ @ Final" }
+{ "time": "14:49:27.6745", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: *Mountain" }
+{ "time": "14:49:27.6745", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:27.6745", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Heightmap" }
+{ "time": "14:49:29.1473", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Heightmap" }
+{ "time": "14:49:29.2518", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SurfTex" }
+{ "time": "14:49:29.4765", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:29.6577", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Soil" }
+{ "time": "14:49:34.3733", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:34.5508", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: RockMap" }
+{ "time": "14:49:34.6568", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Flow" }
+{ "time": "14:49:35.3696", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:35.4018", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:35.5677", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:35.6398", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:35.7539", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Combine" }
+{ "time": "14:49:36.0042", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Normal Map" }
+{ "time": "14:49:36.0671", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Normal Map" }
+{ "time": "14:49:36.3670", "level": "INFO", "site": "<no type>.A.PIE.W_Encrypted$::0", "data": "Loading cache from C:\\Users\\Felipe Rocha\\Downloads\\gaeaFile\\Caches\\Hard\\gameJam1_911ce332\\ @ Final" }
+{ "time": "14:49:37.2073", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: *Mountain" }
+{ "time": "14:49:37.2283", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:37.2283", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Heightmap" }
+{ "time": "14:49:38.6616", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Heightmap" }
+{ "time": "14:49:38.7872", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SurfTex" }
+{ "time": "14:49:39.0083", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:39.2019", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Soil" }
+{ "time": "14:49:44.1359", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:44.3146", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: RockMap" }
+{ "time": "14:49:44.4098", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Flow" }
+{ "time": "14:49:45.0392", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:45.0760", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: SatMaps" }
+{ "time": "14:49:45.2777", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:45.3498", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Combine" }
+{ "time": "14:49:45.4694", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Combine" }
+{ "time": "14:49:45.6985", "level": "INFO", "site": "<no type>.A.YYS.E_Encrypted$::0", "data": "Building: Normal Map" }
+{ "time": "14:49:45.7599", "level": "INFO", "site": "<no type>.A.YYS.N_Encrypted$::0", "data": "Saving: Normal Map" }
+{ "time": "14:49:46.7193", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_r.bin" }
+{ "time": "14:49:46.7193", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_g.bin" }
+{ "time": "14:49:46.7193", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_b.bin" }
+{ "time": "14:49:47.3170", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_r.bin" }
+{ "time": "14:49:47.3170", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_g.bin" }
+{ "time": "14:49:47.3170", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_b.bin" }
+{ "time": "14:49:47.7176", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_r.bin" }
+{ "time": "14:49:47.7176", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_g.bin" }
+{ "time": "14:49:47.7176", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_b.bin" }
+{ "time": "14:49:48.1011", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_r.bin" }
+{ "time": "14:49:48.1011", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_g.bin" }
+{ "time": "14:49:48.1011", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_b.bin" }
+{ "time": "14:49:48.5241", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_r.bin" }
+{ "time": "14:49:48.5241", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_g.bin" }
+{ "time": "14:49:48.5241", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_b.bin" }
+{ "time": "14:49:48.9726", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_r.bin" }
+{ "time": "14:49:48.9726", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_g.bin" }
+{ "time": "14:49:48.9726", "level": "ERROR", "site": "<no type>.A.RQE.PS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_b.bin" }
+{ "time": "14:49:53.6219", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_0_r.bin" }
+{ "time": "14:49:53.6219", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_0_g.bin" }
+{ "time": "14:49:53.6219", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_0_b.bin" }
+{ "time": "14:50:00.0621", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_r.bin" }
+{ "time": "14:50:00.0621", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_g.bin" }
+{ "time": "14:50:00.0621", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_b.bin" }
+{ "time": "14:50:06.4583", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_r.bin" }
+{ "time": "14:50:06.4583", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_g.bin" }
+{ "time": "14:50:06.4583", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_b.bin" }
+{ "time": "14:50:12.8812", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_r.bin" }
+{ "time": "14:50:12.8812", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_g.bin" }
+{ "time": "14:50:12.8812", "level": "ERROR", "site": "<no type>.A.RQE.GS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_b.bin" }
+{ "time": "14:50:17.3370", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_0_r_crop.bin" }
+{ "time": "14:50:17.3370", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_0_g_crop.bin" }
+{ "time": "14:50:17.3370", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_0_b_crop.bin" }
+{ "time": "14:50:23.6655", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_r_crop.bin" }
+{ "time": "14:50:23.6655", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_g_crop.bin" }
+{ "time": "14:50:23.6655", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_0_1_b_crop.bin" }
+{ "time": "14:50:29.2397", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_r_crop.bin" }
+{ "time": "14:50:29.2397", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_g_crop.bin" }
+{ "time": "14:50:29.2397", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_0_b_crop.bin" }
+{ "time": "14:50:35.3210", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_r_crop.bin" }
+{ "time": "14:50:35.3210", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_g_crop.bin" }
+{ "time": "14:50:35.3210", "level": "ERROR", "site": "<no type>.A.RQE.XS_Encrypted$::0", "data": "File does not exist: C:\\Users\\Felipe Rocha\\Documents\\Gaea\\terrains\\sanddunes\\Bin\\f4a5fb83-18a8-49a4-902e-a5b47445a11e_Separation_1_1_b_crop.bin" }

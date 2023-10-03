@@ -1,14 +1,25 @@
+use serde::{Serialize, Deserialize};
 use engine::{
   application::{
-    scene::Scene,
-    components::{
+    scene::{
+      Scene,
       TransformComponent,
+      component_registry::Access,
+    },
+    components::{
       SkyLightComponent,
     },
   },
   systems::{System, Inventory, Backpack, Initializable},
   utils::units::Radian,
 };
+
+use tagged::{Registerable, Schema};
+
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, Registerable, Schema)]
+pub struct SkyComponent {
+  pub elevation: f32,
+}
 
 pub struct SkySystem {
   timing: f32,
@@ -23,6 +34,10 @@ impl Initializable for SkySystem {
 }
 
 impl System for SkySystem {
+  fn provide(&mut self, _: &Inventory) {
+    SkyComponent::register();
+  }
+
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     /*
     for (_, sky) in scene.query_mut::<&mut SkyLightComponent>() {

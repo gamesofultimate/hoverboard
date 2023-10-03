@@ -1,5 +1,8 @@
 use nalgebra::Vector3;
+use tagged::{Registerable, Schema};
+use serde::{Serialize, Deserialize};
 
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, Registerable, Schema)]
 pub struct PlayerMovementComponent {
   pub down_vector: Vector3<f32>,
 }

@@ -3,11 +3,11 @@ use engine::systems::Backpack;
 use engine::{
   application::{
     assets::{AssetPack, Store},
-    components::{Gamefile, Prefab, TransformComponent},
+    gamefile::Gamefile,
     config::Config,
     downloader::DownloadSender,
     input::TrustedInput,
-    scene::{Scene, UnpackEntity},
+    scene::{Scene, Prefab, TransformComponent},
   },
   renderer::resources::{
     animation::{Animation, AnimationDefinition, AnimationId},
@@ -38,7 +38,7 @@ pub struct NetworkController {
   spawn_points: Vec<TransformComponent>,
   prefabs: HashMap<ModelNames, Prefab>,
   download_sender: DownloadSender,
-  client_sender: ClientSender<TrustedInput<Prefab>>,
+  client_sender: ClientSender<TrustedInput>,
   config: Option<Config>,
   store: Store,
 }
@@ -47,7 +47,7 @@ impl Initializable for NetworkController {
   fn initialize(inventory: &Inventory) -> Self {
     let download_sender = inventory.get::<DownloadSender>().clone();
     let client_sender = inventory
-      .get::<ClientSender<TrustedInput<Prefab>>>()
+      .get::<ClientSender<TrustedInput>>()
       .clone();
     let store = Store::new();
     Self {
@@ -74,9 +74,13 @@ impl NetworkController {
     let mut entities = vec![];
     for entity in scene.iter() {
       let entity = entity.entity();
+
+      panic!("here");
+      /*
       let mut prefab = Prefab::pack(scene, &entity);
       prefab.id.is_self = **player_id == prefab.id.id;
       entities.push(prefab);
+      */
     }
 
     log::info!(
@@ -116,6 +120,9 @@ impl ChannelEvents for NetworkController {
 
     self.config = Some(gamefile.config.clone());
 
+    for (id, terrain) in gamefile.scene.terrains {
+      self.store.insert_asset(id, terrain);
+    }
     for (id, model) in gamefile.scene.models {
       self.store.insert_asset(id, model);
     }
@@ -129,7 +136,7 @@ impl ChannelEvents for NetworkController {
       self.store.insert_asset(id, animation);
     }
 
-    for (id, prefab) in gamefile.scene.entities {
+    for (id, prefab) in gamefile.scene.prefabs {
       match prefab.tag.name.as_str() {
         "Player" => {
           log::info!("creating player prefab: {:?}", prefab.tag.name);
@@ -137,8 +144,8 @@ impl ChannelEvents for NetworkController {
         }
         _ => {
           log::info!("receiving entity {:?}", prefab.tag.name);
-          let entity = scene.create_entity("tmp");
-          prefab.unpack(scene, &entity);
+          let entity = scene.create_raw_entity("tmp");
+          scene.create_with_prefab(entity, prefab);
         }
       }
     }
@@ -156,9 +163,9 @@ impl ChannelEvents for NetworkController {
     let mut prefab: Prefab = self.prefabs.get(&ModelNames::Player).unwrap().clone();
     log::info!("Player joined! New prefab: {:#?}", &prefab);
 
-    prefab.id.id = *player_id;
+    *prefab.id = *player_id;
 
-    prefab.unpack(scene, &entity);
+    scene.create_with_prefab(entity, prefab);
 
     self.sync_world(scene, &player_id);
   }

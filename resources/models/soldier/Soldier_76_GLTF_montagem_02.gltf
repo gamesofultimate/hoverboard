@@ -1,0 +1,213 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.2.40",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "soldier_76_tri",
+            "rotation" : [
+                -0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "translation" : [
+                0,
+                8.394114956900012e-06,
+                0
+            ]
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "soldier_76_junto",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "emissiveTexture" : {
+                "index" : 0
+            },
+            "name" : "M_Soldier_76",
+            "normalTexture" : {
+                "index" : 1
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 2
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 3
+                }
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "COLOR_0" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "T_GM_Soldier76_E",
+            "uri" : "T_GM_Soldier76_E.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_GM_Soldier76_N",
+            "uri" : "T_GM_Soldier76_N.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_GM_Soldier76_BC",
+            "uri" : "T_GM_Soldier76_BC.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_GM_Soldier76_MRA",
+            "uri" : "T_GM_Soldier76_MRA.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 29698,
+            "max" : [
+                80.84391021728516,
+                340.6106262207031,
+                24.62212562561035
+            ],
+            "min" : [
+                -80.84391021728516,
+                -0.17574645578861237,
+                -27.89498519897461
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 29698,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 29698,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 29698,
+            "normalized" : true,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 141120,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 356376,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 356376,
+            "byteOffset" : 356376
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 237584,
+            "byteOffset" : 712752
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 237584,
+            "byteOffset" : 950336
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 282240,
+            "byteOffset" : 1187920
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1470160,
+            "uri" : "Soldier_76_GLTF_montagem_02.bin"
+        }
+    ]
+}

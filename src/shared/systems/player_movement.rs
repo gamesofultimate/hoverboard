@@ -4,13 +4,15 @@ use std::char::MAX;
 
 use crate::shared::components::PlayerMovementComponent;
 
-use engine::application::components::{
-  AnimationComponent, InputComponent, PhysicsComponent, TagComponent, TransformComponent,
+use engine::application::{
+  components::{
+    AnimationComponent, InputComponent, PhysicsComponent,
+  },
+  scene::{component_registry::Access, IdComponent, TransformComponent, TagComponent},
 };
 use engine::Entity;
 
 use crate::shared::input::PlayerInput;
-use engine::application::components::IdComponent;
 use engine::application::input::DefaultInput;
 use engine::application::scene::Scene;
 use engine::systems::{
@@ -68,6 +70,7 @@ impl System for PlayerMovementSystem {
   }
 
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
+    /*
     if self.initialized == false {
       let mut entity = Entity::DANGLING;
       for (current_entity, (id, tag)) in scene.query_mut::<(&IdComponent, &TagComponent)>() {
@@ -79,16 +82,11 @@ impl System for PlayerMovementSystem {
       }
       scene.add_component(entity, PlayerMovementComponent::new());
     }
+    */
 
     let delta_time = **backpack.get::<Time>().unwrap();
 
-    let input = match self.inputs.receive() {
-      Some(input) => {
-        self.capture_mouse(&input);
-        input
-      }
-      None => return,
-    };
+    let input = self.inputs.read();
 
     self.handle_input(scene, input, delta_time);
     self.handle_hover(scene, delta_time);
