@@ -7,7 +7,7 @@ use engine::{
     config::Config,
     downloader::DownloadSender,
     input::TrustedInput,
-    scene::{Scene, Prefab, TransformComponent},
+    scene::{Scene, PrefabId, Prefab, TransformComponent},
   },
   renderer::resources::{
     animation::{Animation, AnimationDefinition, AnimationId},
@@ -71,16 +71,12 @@ impl NetworkController {
       definitions.push(packed);
     }
 
-    let mut entities = vec![];
-    for entity in scene.iter() {
-      let entity = entity.entity();
+    let mut world_entities = scene.iter().map(|item| item.entity()).collect::<Vec<Entity>>();
 
-      panic!("here");
-      /*
-      let mut prefab = Prefab::pack(scene, &entity);
-      prefab.id.is_self = **player_id == prefab.id.id;
+    let mut entities = vec![];
+    for entity in world_entities {
+      let mut prefab = Prefab::pack(scene, entity).unwrap();
       entities.push(prefab);
-      */
     }
 
     log::info!(
@@ -163,7 +159,7 @@ impl ChannelEvents for NetworkController {
     let mut prefab: Prefab = self.prefabs.get(&ModelNames::Player).unwrap().clone();
     log::info!("Player joined! New prefab: {:#?}", &prefab);
 
-    *prefab.id = *player_id;
+    *prefab.id = PrefabId::with_id(*player_id);
 
     scene.create_with_prefab(entity, prefab);
 

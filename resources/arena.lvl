@@ -267,6 +267,25 @@
                 "turbidity": 2.0
               }
             }
+          },
+          {
+            "LightComponent": {
+              "Directional": {
+                "radiance": [
+                  1,
+                  1,
+                  1
+                ],
+                "intensity": 1.1,
+                "azimuth": {
+                  "value": 2
+                },
+                "inclination": {
+                  "value": 1.1
+                },
+                "should_cast_shadows": true
+              }
+            }
           }
         ]
       },

@@ -143,10 +143,12 @@ impl PlayerMovementSystem {
       let transform_direction = transform.get_euler_direction();
 
       self.accelerate(forward_input, delta_time);
+      /*
       physics.delta_translation =
         transform_direction.into_inner() * self.current_velocity * delta_time * forward_input;
       // TODO: this needs to take into account the player's entire rotation, not just y
       physics.delta_rotation.y = ROTATION_SPEED * delta_time * right_input;
+      */
     }
   }
 
@@ -163,10 +165,12 @@ impl PlayerMovementSystem {
 
       let height_delta = MAX_HEIGHT_FROM_SURFACE - MIN_HEIGHT_FROM_SURFACE;
 
+      /*
       // TODO: this needs to take into account the player's entire rotation, not just y
       physics.delta_translation.y = f32::sin(self.running_time * HEIGHT_FROM_SURFACE_SPEED)
         * height_delta
         + MIN_HEIGHT_FROM_SURFACE;
+      */
     }
   }
 }
