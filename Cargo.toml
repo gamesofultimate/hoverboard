@@ -27,9 +27,9 @@ opt-level = 3
 wasm-opt = false
 
 [dependencies]
-#tagged = { version = "0.1.0", registry = "ultimate-shared" }
+tagged = { version = "0.1.1", registry = "ultimate-shared" }
 #engine = { version = "0.3.13", registry = "ultimate-shared" }
-tagged = { path = "../../tagged" }
+#tagged = { path = "../../tagged" }
 engine = { path = "../../engine" }
 
 log = "0.4.6"

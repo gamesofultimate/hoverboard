@@ -161,6 +161,12 @@ impl ChannelEvents for NetworkController {
 
     *prefab.id = PrefabId::with_id(*player_id);
 
+    /*
+    if let Some(component) = prefab.get_mut::<TagComponent> {
+      component.name = "New name";
+    }
+    */
+
     scene.create_with_prefab(entity, prefab);
 
     self.sync_world(scene, &player_id);

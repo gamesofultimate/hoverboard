@@ -6,7 +6,7 @@ mod network_controller;
 
 use engine::systems::{
   Scheduler,
-  network::NetworkPlugin,
+  network::{NetworkPlugin, ChannelEvents},
   hdr::HdrPipeline,
 };
 

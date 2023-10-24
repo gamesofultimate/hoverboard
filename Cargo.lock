@@ -655,7 +655,7 @@ checksum = "a26ae43d7bcc3b814de94796a5e736d4029efb0ee900c12e2d54c993ad1a1e07"
 
 [[package]]
 name = "engine"
-version = "0.3.20"
+version = "0.4.5"
 dependencies = [
  "async-channel",
  "async-recursion",
@@ -705,7 +705,9 @@ dependencies = [
 
 [[package]]
 name = "engine_derive"
-version = "0.1.0"
+version = "0.1.1"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "596c5990aa8252b43d8b6dc0e2153d46f6dc61ca07a7c697e0d64717a91d5c4a"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2618,7 +2620,9 @@ checksum = "2047c6ded9c721764247e62cd3b03c09ffc529b2ba5b10ec482ae507a4a70160"
 
 [[package]]
 name = "tagged"
-version = "0.1.0"
+version = "0.1.1"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "400fc3a38ca1ba97e0e94348a8270f5bf31d9b8df9c3d32c622c83e9a148e6fd"
 dependencies = [
  "anyhow",
  "convert_case 0.6.0",
@@ -2638,7 +2642,9 @@ dependencies = [
 
 [[package]]
 name = "tagged_derive"
-version = "0.1.0"
+version = "0.1.1"
+source = "registry+https://dl.cloudsmith.io/6FXzOXUMi8NaqDd3/ultimate/shared/cargo/index.git"
+checksum = "8ddbacb808951b2f99400dc94d668ede35e6bb93a914c866b997bc04e477b2cc"
 dependencies = [
  "convert_case 0.6.0",
  "proc-macro2",

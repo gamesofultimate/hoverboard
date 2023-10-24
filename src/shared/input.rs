@@ -1,6 +1,6 @@
 #![cfg(target_arch = "wasm32")]
 
-use engine::application::devices::{Devices, KeyboardKey, MouseButton, MouseEvent, WindowEvent};
+use engine::application::devices::{Devices, KeyboardKey, MouseButton, MouseEvent, WindowEvent, MouseState};
 use engine::systems::input::Input;
 use nalgebra::{Vector2, Vector3};
 
@@ -32,21 +32,35 @@ impl Input for PlayerInput {
     self.mouse_position = Vector2::zeros();
   }
 
+    fn normalize(&mut self, count: usize) {
+      /*
+      self.up /= count as f32;
+      self.right /= count as f32;
+      self.forward /= count as f32;
+      */
+    }
+
   fn from_devices(&mut self, device: &mut Devices) {
     self.focused = device.window.focus;
 
     self.canvas = device.window.canvas_size;
     self.pixel_ratio = device.window.pixel_ratio;
 
-    for event in device.mouse.iter_buttons() {
-      match event {
-        MouseButton::Primary => {
+    for (state, button) in device.mouse.iter_buttons() {
+      match (state, button) {
+        (MouseState::Down, MouseButton::Primary) => {
           self.left_click = true;
         }
-        MouseButton::Secondary => {
+        (MouseState::Down, MouseButton::Secondary) => {
           self.right_click = true;
         }
-        _ => {}
+        (MouseState::Up, MouseButton::Primary) => {
+          self.left_click = false;
+        }
+        (MouseState::Up, MouseButton::Secondary) => {
+          self.right_click = false;
+        }
+        _ => todo!(),
       }
     }
 
