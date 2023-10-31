@@ -1,5 +1,4 @@
 mod camera;
-mod world;
 
 use engine::{
   application::{
@@ -66,7 +65,6 @@ pub async fn main(
   );
 
   runner.attach_plugin(hdr);
-  //runner.attach_system::<world::WorldSystem>();
   runner.attach_system::<camera::CameraSystem>();
   runner.attach_system::<PlayerMovementSystem>();
   runner.run().await;
