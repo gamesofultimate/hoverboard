@@ -65,13 +65,13 @@
           ],
           "rotation": [
             0,
-            0,
+            1.8151424220741,
             0
           ],
           "scale": [
-            20,
-            20,
-            20
+            1,
+            1,
+            1
           ]
         },
         "components": [
@@ -188,30 +188,6 @@
             }
           }
         ]
-      },
-      "a76d2a4a-2fa3-4df0-a677-185aa68d1670": {
-        "id": "a76d2a4a-2fa3-4df0-a677-185aa68d1670",
-        "tag": {
-          "name": "Smoke Bomb 2"
-        },
-        "transform": {
-          "translation": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "components": []
       },
       "83c6b180-378f-42a8-b951-01e0026d16a2": {
         "id": "83c6b180-378f-42a8-b951-01e0026d16a2",
@@ -426,6 +402,36 @@
             }
           }
         ]
+      },
+      "c50a1095-da52-4458-964e-6462e62660fa": {
+        "id": "c50a1095-da52-4458-964e-6462e62660fa",
+        "tag": {
+          "name": "Hoverboard"
+        },
+        "transform": {
+          "translation": [
+            0,
+            3.5964003,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "ModelComponent": {
+              "id": "9c51c085-9490-48b9-bbbf-abfb96ce65ae"
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -475,6 +481,12 @@
         "id": "23836ae6-14c5-4153-b6d1-c513e2dbd099",
         "maxInstances": 10,
         "source": "models/sphere/sphere.gltf",
+        "submeshes": []
+      },
+      "9c51c085-9490-48b9-bbbf-abfb96ce65ae": {
+        "id": "9c51c085-9490-48b9-bbbf-abfb96ce65ae",
+        "source": "models/hoverboard/hoverboard.gltf",
+        "maxInstances": 10,
         "submeshes": []
       }
     },
