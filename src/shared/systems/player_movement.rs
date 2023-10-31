@@ -61,6 +61,10 @@ impl Initializable for PlayerMovementSystem {
 }
 
 impl System for PlayerMovementSystem {
+  fn provide(&mut self, inventory: &Inventory) {
+    PlayerMovementComponent::register();
+  }
+
   fn attach(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
     if let Some(physics) = backpack.get_mut::<PhysicsConfig>() {
       physics.gravity = Vector3::new(0.0, 0.0, 0.0);
