@@ -1,4 +1,5 @@
 use async_trait::async_trait;
+use engine::application::components::ParentComponent;
 use engine::application::components::SelfComponent;
 use engine::systems::Backpack;
 use engine::{
@@ -33,6 +34,7 @@ enum ModelNames {
   Spectator,
   Player,
   SmokeBomb,
+  Hoverboard,
 }
 
 impl ModelNames {
@@ -41,6 +43,7 @@ impl ModelNames {
       "Spectator" => Self::Spectator,
       "Player" => Self::Player,
       "Smoke Bomb" => Self::SmokeBomb,
+      "Hoverboard" => Self::Hoverboard,
       _ => panic!("Unknown model name: {}", name),
     }
   }
@@ -50,6 +53,7 @@ impl ModelNames {
       Self::Spectator => "Spectator",
       Self::Player => "Player",
       Self::SmokeBomb => "Smoke Bomb",
+      Self::Hoverboard => "Hoverboard",
     }
   }
 }
@@ -185,6 +189,10 @@ impl ChannelEvents for NetworkController {
           log::info!("creating smoke bomb prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::SmokeBomb, prefab.clone());
         }
+        "Hoverboard" => {
+          log::info!("creating hoverboard prefab: {:?}", prefab.tag.name);
+          self.prefabs.insert(ModelNames::Hoverboard, prefab.clone());
+        }
         _ => {
           log::info!("receiving entity {:?}", prefab.tag.name);
           let entity = scene.create_raw_entity("tmp");
@@ -203,18 +211,24 @@ impl ChannelEvents for NetworkController {
     username: String,
     protocol: Protocol,
   ) {
-    let mut prefab: Prefab = self.prefabs.get(&ModelNames::Player).unwrap().clone();
-    log::info!("Player joined! New prefab: {:#?}", &prefab);
+    let mut player_prefab: Prefab = self.prefabs.get(&ModelNames::Player).unwrap().clone();
+    log::info!("Player joined! New prefab: {:#?}", &player_prefab);
 
-    *prefab.id = PrefabId::with_id(*player_id);
+    *player_prefab.id = PrefabId::with_id(*player_id);
+    scene.create_with_prefab(entity, player_prefab);
 
-    /*
-    if let Some(component) = prefab.get_mut::<TagComponent> {
-      component.name = "New name";
+    // spawn new hoverboard and reparent to new player
+    let mut hoverboard_prefab: Prefab = self.prefabs.get(&ModelNames::Hoverboard).unwrap().clone();
+    let hoverboard_entity = scene.create_raw_entity("Hoverboard");
+    *hoverboard_prefab.id = PrefabId::new();
+    scene.create_with_prefab(hoverboard_entity, hoverboard_prefab);
+
+    if let parent_component = scene
+      .query_one_mut::<&mut ParentComponent>(hoverboard_entity)
+      .unwrap()
+    {
+      parent_component.id = PrefabId::with_id(*player_id);
     }
-    */
-
-    scene.create_with_prefab(entity, prefab);
 
     self.sync_world(scene, &player_id);
   }

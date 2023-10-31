@@ -411,7 +411,7 @@
         "transform": {
           "translation": [
             0,
-            3.5964003,
+            0,
             0
           ],
           "rotation": [
@@ -429,6 +429,11 @@
           {
             "ModelComponent": {
               "id": "9c51c085-9490-48b9-bbbf-abfb96ce65ae"
+            }
+          },
+          {
+            "ParentComponent": {
+              "id": "20ac3835-718c-4465-b0bc-4fbde2408abf"
             }
           }
         ]
