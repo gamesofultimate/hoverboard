@@ -1,14 +1,16 @@
 use async_trait::async_trait;
+use engine::application::components::SelfComponent;
 use engine::systems::Backpack;
 use engine::{
   application::{
     assets::{AssetPack, Store},
-    gamefile::Gamefile,
     config::Config,
     downloader::DownloadSender,
+    gamefile::Gamefile,
     input::TrustedInput,
-    scene::{Scene, PrefabId, Prefab, TransformComponent},
+    scene::{Prefab, PrefabId, Scene, TransformComponent},
   },
+  networking::connection::{PlayerId, Protocol},
   renderer::resources::{
     animation::{Animation, AnimationDefinition, AnimationId},
     background::DynamicDefinition,
@@ -20,7 +22,6 @@ use engine::{
     network::{ChannelEvents, ClientSender},
     Initializable, Inventory,
   },
-  networking::connection::{PlayerId, Protocol},
   Entity,
 };
 use nalgebra::Vector3;
@@ -31,6 +32,26 @@ use uuid::Uuid;
 enum ModelNames {
   Spectator,
   Player,
+  SmokeBomb,
+}
+
+impl ModelNames {
+  fn from_str(name: &str) -> Self {
+    match name {
+      "Spectator" => Self::Spectator,
+      "Player" => Self::Player,
+      "Smoke Bomb" => Self::SmokeBomb,
+      _ => panic!("Unknown model name: {}", name),
+    }
+  }
+
+  fn to_str(&self) -> &str {
+    match self {
+      Self::Spectator => "Spectator",
+      Self::Player => "Player",
+      Self::SmokeBomb => "Smoke Bomb",
+    }
+  }
 }
 
 pub struct NetworkController {
@@ -46,9 +67,7 @@ pub struct NetworkController {
 impl Initializable for NetworkController {
   fn initialize(inventory: &Inventory) -> Self {
     let download_sender = inventory.get::<DownloadSender>().clone();
-    let client_sender = inventory
-      .get::<ClientSender<TrustedInput>>()
-      .clone();
+    let client_sender = inventory.get::<ClientSender<TrustedInput>>().clone();
     let store = Store::new();
     Self {
       client_sender,
@@ -71,19 +90,38 @@ impl NetworkController {
       definitions.push(packed);
     }
 
-    let mut world_entities = scene.iter().map(|item| item.entity()).collect::<Vec<Entity>>();
+    let mut world_entities = scene
+      .iter()
+      .map(|item| item.entity())
+      .collect::<Vec<Entity>>();
+
+    let entities_data: Vec<_> = scene
+      .iter()
+      .map(|entity| entity.entity())
+      .collect::<Vec<Entity>>();
 
     let mut entities = vec![];
-    for entity in world_entities {
+
+    for entity in entities_data {
       let mut prefab = Prefab::pack(scene, entity).unwrap();
+      let is_self = **player_id == **prefab.id;
+      if is_self {
+        prefab.components.push(Box::new(SelfComponent {}));
+      }
       entities.push(prefab);
     }
 
+    let mut prefabs = vec![];
+    for (name, prefab) in scene.iter_prefabs() {
+      prefabs.push((name.clone(), prefab.clone()));
+    }
+
     log::info!(
-      "SYNC WORLD WITH {:?}\n{:#?}\n{:#?}",
+      "SYNC WORLD WITH {:?}\n{:#?}\n{:#?}\n{:#?}",
       &player_id,
       &definitions,
-      &entities
+      &entities,
+      &prefabs
     );
 
     if let Some(config) = &self.config {
@@ -101,6 +139,11 @@ impl NetworkController {
         trigger_loading: true,
       },
     );
+
+    self
+      .client_sender
+      .send_reliable(*player_id, TrustedInput::Prefabs { prefabs });
+
     self
       .client_sender
       .send_reliable(*player_id, TrustedInput::Entities { entities });
@@ -137,6 +180,10 @@ impl ChannelEvents for NetworkController {
         "Player" => {
           log::info!("creating player prefab: {:?}", prefab.tag.name);
           self.prefabs.insert(ModelNames::Player, prefab.clone());
+        }
+        "Smoke Bomb" => {
+          log::info!("creating smoke bomb prefab: {:?}", prefab.tag.name);
+          self.prefabs.insert(ModelNames::SmokeBomb, prefab.clone());
         }
         _ => {
           log::info!("receiving entity {:?}", prefab.tag.name);

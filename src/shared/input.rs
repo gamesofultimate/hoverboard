@@ -1,8 +1,17 @@
 #![cfg(target_arch = "wasm32")]
 
-use engine::application::devices::{Devices, KeyboardKey, MouseButton, MouseEvent, WindowEvent, MouseState};
+use engine::application::devices::{
+  Devices, KeyboardKey, MouseButton, MouseEvent, MouseState, WindowEvent,
+};
 use engine::systems::input::Input;
 use nalgebra::{Vector2, Vector3};
+use std::collections::HashSet;
+
+#[derive(Clone, Debug, Eq, PartialEq, Hash)]
+pub enum Actions {
+  Brake,
+  SmokeBomb,
+}
 
 #[derive(Clone, Debug)]
 pub struct PlayerInput {
@@ -17,6 +26,7 @@ pub struct PlayerInput {
   pub canvas: (u32, u32),
   pub pixel_ratio: f32,
   pub keyboard: Vec<KeyboardKey>,
+  pub actions: HashSet<Actions>,
 }
 
 impl Default for PlayerInput {
@@ -30,6 +40,7 @@ impl Input for PlayerInput {
     self.direction_vector = Vector3::zeros();
     self.mouse_delta = Vector2::zeros();
     self.mouse_position = Vector2::zeros();
+    self.actions.clear();
   }
 
     fn normalize(&mut self, count: usize) {
@@ -46,13 +57,13 @@ impl Input for PlayerInput {
     self.canvas = device.window.canvas_size;
     self.pixel_ratio = device.window.pixel_ratio;
 
-    for (state, button) in device.mouse.iter_buttons() {
-      match (state, button) {
-        (MouseState::Down, MouseButton::Primary) => {
-          self.left_click = true;
+    for event in device.mouse.iter_buttons() {
+      match event {
+        (state, MouseButton::Primary) => {
+          self.left_click = state == MouseState::Down;
         }
-        (MouseState::Down, MouseButton::Secondary) => {
-          self.right_click = true;
+        (state, MouseButton::Secondary) => {
+          self.right_click = state == MouseState::Down;
         }
         (MouseState::Up, MouseButton::Primary) => {
           self.left_click = false;
@@ -86,6 +97,12 @@ impl Input for PlayerInput {
         KeyboardKey::A | KeyboardKey::Left => self.direction_vector.x = -1.0,
         KeyboardKey::W | KeyboardKey::Up => self.direction_vector.z = 1.0,
         KeyboardKey::S | KeyboardKey::Down => self.direction_vector.z = -1.0,
+        KeyboardKey::E => {
+          self.actions.insert(Actions::SmokeBomb);
+        }
+        KeyboardKey::Space => {
+          self.actions.insert(Actions::Brake);
+        }
         _ => {}
       }
     }
@@ -119,6 +136,11 @@ impl Input for PlayerInput {
       };
     }
   }
+
+  fn normalize(&mut self, count: usize) {
+    self.direction_vector /= count as f32;
+    self.mouse_delta /= count as f32;
+  }
 }
 
 impl PlayerInput {
@@ -135,6 +157,7 @@ impl PlayerInput {
       canvas: (0, 0),
       pixel_ratio: 1.0,
       keyboard: Vec::new(),
+      actions: HashSet::new(),
     }
   }
 }

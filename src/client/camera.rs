@@ -1,10 +1,10 @@
 use engine::{
   application::{
-    components::{CameraComponent, LightComponent},
-    scene::{Scene, IdComponent, TransformComponent},
+    components::{CameraComponent, LightComponent, SelfComponent},
+    scene::{IdComponent, Scene, TransformComponent},
   },
   systems::{rendering::CameraConfig, Backpack, Initializable, Inventory, System},
-  utils::units::Radian,
+  utils::units::Radians,
 };
 use nalgebra::{Isometry3, Point3, Unit, Vector3};
 
@@ -18,9 +18,12 @@ impl Initializable for CameraSystem {
 
 impl System for CameraSystem {
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
-    for (_, (id, transform, camera)) in
-      &mut scene.query::<(&IdComponent, &TransformComponent, &CameraComponent)>()
-    {
+    for (_, (id, transform, camera, _)) in &mut scene.query::<(
+      &IdComponent,
+      &TransformComponent,
+      &CameraComponent,
+      &SelfComponent,
+    )>() {
       let eye_direction = transform.get_euler_direction();
 
       let offset = (eye_direction.into_inner() * -5.) + Vector3::new(0.0, 0.75, 0.0);
