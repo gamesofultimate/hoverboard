@@ -1,24 +1,23 @@
 {
-  "version": "v0.0.2",
   "config": {
     "id": "8d0a44bb-da92-4a1b-babe-64d95931837c",
     "name": "Hoverboard",
     "bloom": {
-      "threshold": 1.0,
+      "threshold": 1,
       "knee": 0.1,
       "enabled": true,
       "hdr": true
     },
     "dof": {
-      "focus_point": 5.0,
+      "focus_point": 5,
       "focus_scale": 0.4,
-      "radius_scale": 1.0,
+      "radius_scale": 1,
       "enabled": false
     },
     "ssao": {
       "enabled": false,
-      "scale": 4.0,
-      "radius": 4.0,
+      "scale": 4,
+      "radius": 4,
       "bias": 0.03
     },
     "ambient": {
@@ -26,15 +25,15 @@
       "fog": 0.001
     },
     "shadows": {
-      "num_cascade_layers": 4.0,
-      "shadow_multiplier": 2.0,
+      "num_cascade_layers": 4,
+      "shadow_multiplier": 2,
       "debug_paint_cascades": false
     },
     "physics": {
       "color": [
-        1.0,
-        0.0,
-        0.0
+        1,
+        0,
+        0
       ]
     },
     "debug": {
@@ -45,10 +44,10 @@
     },
     "camera": {
       "fovy": {
-        "value": 0.7853982
+        "radians": 0.7853982
       },
       "znear": 0.1,
-      "zfar": 1000.0
+      "zfar": 1000
     }
   },
   "scene": {
@@ -65,14 +64,14 @@
             -25.460999
           ],
           "rotation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "scale": [
-            20.0,
-            20.0,
-            20.0
+            20,
+            20,
+            20
           ]
         },
         "components": [
@@ -81,9 +80,9 @@
               "animations": [
                 {
                   "id": "f7645325-4819-40e0-8ccb-0604d64f7224",
-                  "rate": 1.0,
-                  "weight": 1.0,
-                  "current": 0.0,
+                  "rate": 1,
+                  "weight": 1,
+                  "current": 0,
                   "state": "Playing"
                 }
               ]
@@ -93,37 +92,37 @@
             "PhysicsComponent": {
               "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
               "delta_translation": [
-                0.0,
-                0.0,
-                0.0
+                0,
+                0,
+                0
               ],
               "delta_rotation": [
-                0.0,
-                0.0,
-                0.0
+                0,
+                0,
+                0
               ],
               "debug": false,
               "joint": {
                 "id": "fe21aeb0-f225-4db0-8205-fac1a2f38006",
                 "name": "New Joint",
                 "offset": [
-                  0.0,
-                  0.0,
-                  0.0
+                  0,
+                  0,
+                  0
                 ],
                 "body": {
                   "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
                   "dynamic_type": "Dynamic",
                   "collider_type": {
                     "Cube": {
-                      "width": 1.0,
-                      "height": 1.0,
-                      "length": 1.0
+                      "width": 1,
+                      "height": 1,
+                      "length": 1
                     }
                   },
-                  "density": 1.0,
-                  "friction": 1.0,
-                  "restitution": 1.0,
+                  "density": 1,
+                  "friction": 1,
+                  "restitution": 1,
                   "allow_translation": [
                     true,
                     true,
@@ -149,22 +148,21 @@
           },
           {
             "InputComponent": {
-              "yaw": 0.0,
-              "pitch": 0.0,
+              "yaw": 0,
+              "pitch": 0,
               "front": [
-                1.0,
-                0.0,
-                0.0
+                1,
+                0,
+                0
               ],
               "walk": [
-                1.0,
-                0.0,
-                0.0
+                1,
+                0,
+                0
               ],
               "sensitivity": 0.01,
               "speed": {
-                "kilometers": 2.0,
-                "hours": 1.0
+                "kph": 2
               }
             }
           },
@@ -172,12 +170,21 @@
             "CameraComponent": {
               "Perspective": {
                 "fovy": {
-                  "value": 0.7853982
+                  "radians": 0.7853982
                 },
                 "znear": 0.1,
-                "zfar": 1000.0,
+                "zfar": 1000,
                 "primary": true
               }
+            }
+          },
+          {
+            "PlayerMovementComponent": {
+              "down_vector": [
+                0,
+                1,
+                0
+              ]
             }
           }
         ]
@@ -189,19 +196,19 @@
         },
         "transform": {
           "translation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "rotation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "scale": [
-            1.0,
-            1.0,
-            1.0
+            1,
+            1,
+            1
           ]
         },
         "components": []
@@ -213,19 +220,19 @@
         },
         "transform": {
           "translation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "rotation": [
-            0.0,
+            0,
             -0.6845479,
-            0.0
+            0
           ],
           "scale": [
-            1.0,
-            1.0,
-            1.0
+            1,
+            1,
+            1
           ]
         },
         "components": [
@@ -244,19 +251,19 @@
         },
         "transform": {
           "translation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "rotation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "scale": [
-            1.0,
-            1.0,
-            1.0
+            1,
+            1,
+            1
           ]
         },
         "components": [
@@ -264,7 +271,7 @@
             "SkyLightComponent": {
               "Dynamic": {
                 "id": "123f9457-4476-48e4-adba-c2ba616fe2e2",
-                "turbidity": 2.0
+                "turbidity": 2
               }
             }
           },
@@ -278,10 +285,10 @@
                 ],
                 "intensity": 1.1,
                 "azimuth": {
-                  "value": 2
+                  "radians": 2
                 },
                 "inclination": {
-                  "value": 1.1
+                  "radians": 1.1
                 },
                 "should_cast_shadows": true
               }
@@ -301,18 +308,17 @@
             -20.298517
           ],
           "rotation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "scale": [
-            1.0,
-            1.0,
-            1.0
+            1,
+            1,
+            1
           ]
         },
-        "components": [
-        ]
+        "components": []
       },
       "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
         "id": "a26c6bc9-1220-41bb-9d34-474b34ba2d2f",
@@ -321,19 +327,19 @@
         },
         "transform": {
           "translation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "rotation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "scale": [
-            1.0,
-            1.0,
-            1.0
+            1,
+            1,
+            1
           ]
         },
         "components": [
@@ -341,23 +347,23 @@
             "PhysicsComponent": {
               "id": "a8b88255-120d-4c97-b28c-19d0dc2512d7",
               "delta_translation": [
-                0.0,
-                0.0,
-                0.0
+                0,
+                0,
+                0
               ],
               "delta_rotation": [
-                0.0,
-                0.0,
-                0.0
+                0,
+                0,
+                0
               ],
               "debug": false,
               "joint": {
                 "id": "bc878291-d21b-4a8b-a000-00612f309ddb",
                 "name": "New Joint",
                 "offset": [
-                  0.0,
-                  0.0,
-                  0.0
+                  0,
+                  0,
+                  0
                 ],
                 "body": {
                   "id": "2b5e5204-4d23-448e-938b-756d029f2676",
@@ -367,9 +373,9 @@
                       "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5"
                     }
                   },
-                  "density": 1.0,
-                  "friction": 1.0,
-                  "restitution": 1.0,
+                  "density": 1,
+                  "friction": 1,
+                  "restitution": 1,
                   "allow_translation": [
                     true,
                     true,
@@ -397,26 +403,26 @@
         "transform": {
           "translation": [
             -250.51534,
-            0.0,
-            -350.0
+            0,
+            -350
           ],
           "rotation": [
-            0.0,
-            0.0,
-            0.0
+            0,
+            0,
+            0
           ],
           "scale": [
-            1.0,
-            1.0,
-            1.0
+            1,
+            1,
+            1
           ]
         },
         "components": [
           {
             "TerrainComponent": {
               "id": "7e03cb03-565b-4626-92ec-582f2e3842e4",
-              "height": 100.0,
-              "tile_half_length": 250.0
+              "height": 100,
+              "tile_half_length": 250
             }
           }
         ]

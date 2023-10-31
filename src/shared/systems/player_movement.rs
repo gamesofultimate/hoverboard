@@ -5,10 +5,8 @@ use std::char::MAX;
 use crate::shared::components::PlayerMovementComponent;
 
 use engine::application::{
-  components::{
-    AnimationComponent, InputComponent, PhysicsComponent,
-  },
-  scene::{component_registry::Access, IdComponent, TransformComponent, TagComponent},
+  components::{AnimationComponent, InputComponent, PhysicsComponent},
+  scene::{component_registry::Access, IdComponent, TagComponent, TransformComponent},
 };
 use engine::Entity;
 
@@ -70,20 +68,6 @@ impl System for PlayerMovementSystem {
   }
 
   fn run(&mut self, scene: &mut Scene, backpack: &mut Backpack) {
-    /*
-    if self.initialized == false {
-      let mut entity = Entity::DANGLING;
-      for (current_entity, (id, tag)) in scene.query_mut::<(&IdComponent, &TagComponent)>() {
-        if id.is_self {
-          entity = current_entity;
-          self.initialized = true;
-          break;
-        }
-      }
-      scene.add_component(entity, PlayerMovementComponent::new());
-    }
-    */
-
     let delta_time = **backpack.get::<Time>().unwrap();
 
     let input = self.inputs.read();

@@ -1,31 +1,29 @@
 mod network_controller;
 
-//use std::io::Write;
+use engine::application::scene::Prefab;
+use engine::systems::Inventory;
+use engine::systems::Plugin;
+use engine::systems::{hdr::HdrPipeline, network::NetworkPlugin, Scheduler};
 
-//use networking::server::connection::{Connection, Message as ServerEvents, PlayerId};
+use crate::server::network_controller::NetworkController;
+use crate::shared::components::PlayerMovementComponent;
 
-use engine::systems::{
-  Scheduler,
-  network::{NetworkPlugin, ChannelEvents},
-  hdr::HdrPipeline,
-};
+use engine::application::scene::component_registry::Access;
 
-use engine::application::{
-  scene::Prefab,
-};
-
-use crate::{
-  server::{
-    network_controller::NetworkController,
-  },
-  shared::{
-    systems::{
-      sky::SkySystem,
-    },
-  },
-};
+use async_trait::async_trait;
 
 const FRAMES_PER_SECOND: u64 = 60;
+
+pub struct CustomComponentsPlugin;
+
+#[async_trait(?Send)]
+impl Plugin for CustomComponentsPlugin {
+  async fn init(mut self: Box<Self>, _: &mut Scheduler) {}
+
+  fn provide(&mut self, _: &Inventory) {
+    PlayerMovementComponent::register();
+  }
+}
 
 pub async fn main() {
   dotenv::dotenv().ok();
@@ -45,12 +43,12 @@ pub async fn main() {
     format!("{}:{}", address, port).parse().unwrap()
   };
 
-  let (mut hdr, download_sender) = HdrPipeline::<NetworkController>::new("resources", rpc_address, session_address);
-
+  let (mut hdr, download_sender) =
+    HdrPipeline::<NetworkController>::new("resources", rpc_address, session_address);
 
   let mut runner = Scheduler::new(FRAMES_PER_SECOND);
   runner.attach_plugin(hdr);
-  runner.attach_system::<SkySystem>();
+  runner.attach_plugin(CustomComponentsPlugin);
 
   runner.run().await;
 
