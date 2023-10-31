@@ -43,14 +43,6 @@ impl Input for PlayerInput {
     self.actions.clear();
   }
 
-    fn normalize(&mut self, count: usize) {
-      /*
-      self.up /= count as f32;
-      self.right /= count as f32;
-      self.forward /= count as f32;
-      */
-    }
-
   fn from_devices(&mut self, device: &mut Devices) {
     self.focused = device.window.focus;
 
@@ -64,12 +56,6 @@ impl Input for PlayerInput {
         }
         (state, MouseButton::Secondary) => {
           self.right_click = state == MouseState::Down;
-        }
-        (MouseState::Up, MouseButton::Primary) => {
-          self.left_click = false;
-        }
-        (MouseState::Up, MouseButton::Secondary) => {
-          self.right_click = false;
         }
         _ => todo!(),
       }
