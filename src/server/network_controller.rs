@@ -31,7 +31,6 @@ use uuid::Uuid;
 
 #[derive(Debug, Eq, PartialEq, Hash)]
 enum ModelNames {
-  Spectator,
   Player,
   SmokeBomb,
   Hoverboard,
@@ -40,7 +39,6 @@ enum ModelNames {
 impl ModelNames {
   fn from_str(name: &str) -> Self {
     match name {
-      "Spectator" => Self::Spectator,
       "Player" => Self::Player,
       "Smoke Bomb" => Self::SmokeBomb,
       "Hoverboard" => Self::Hoverboard,
@@ -50,7 +48,6 @@ impl ModelNames {
 
   fn to_str(&self) -> &str {
     match self {
-      Self::Spectator => "Spectator",
       Self::Player => "Player",
       Self::SmokeBomb => "Smoke Bomb",
       Self::Hoverboard => "Hoverboard",
@@ -59,8 +56,6 @@ impl ModelNames {
 }
 
 pub struct NetworkController {
-  spectator_points: Vec<TransformComponent>,
-  spawn_points: Vec<TransformComponent>,
   prefabs: HashMap<ModelNames, Prefab>,
   download_sender: DownloadSender,
   client_sender: ClientSender<TrustedInput>,
@@ -77,8 +72,6 @@ impl Initializable for NetworkController {
       client_sender,
       download_sender,
       store,
-      spectator_points: vec![],
-      spawn_points: vec![],
       prefabs: HashMap::new(),
       config: None,
     }

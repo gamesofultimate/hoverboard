@@ -89,58 +89,6 @@
             }
           },
           {
-            "PhysicsComponent": {
-              "id": "58748c62-3b55-4ab5-955b-e9b2f3d7b732",
-              "delta_translation": [
-                0,
-                0,
-                0
-              ],
-              "delta_rotation": [
-                0,
-                0,
-                0
-              ],
-              "debug": false,
-              "joint": {
-                "id": "fe21aeb0-f225-4db0-8205-fac1a2f38006",
-                "name": "New Joint",
-                "offset": [
-                  0,
-                  0,
-                  0
-                ],
-                "body": {
-                  "id": "4a6c64a4-afb0-4a85-ae3c-5ba9d7fca755",
-                  "dynamic_type": "Dynamic",
-                  "collider_type": {
-                    "Cube": {
-                      "width": 1,
-                      "height": 1,
-                      "length": 1
-                    }
-                  },
-                  "density": 1,
-                  "friction": 1,
-                  "restitution": 1,
-                  "allow_translation": [
-                    true,
-                    true,
-                    true
-                  ],
-                  "allow_rotation": [
-                    true,
-                    true,
-                    true
-                  ],
-                  "ccd": false
-                },
-                "config": null,
-                "joints": []
-              }
-            }
-          },
-          {
             "ModelComponent": {
               "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
               "submesh_id": null
@@ -179,12 +127,55 @@
             }
           },
           {
+            "PhysicsComponent": {
+              "joint": {
+                "body": {
+                  "id": "45c822c0-661c-49b4-80f1-d79a7f7449c9",
+                  "density": 1,
+                  "friction": 0.1,
+                  "ccd": true,
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "restitution": 0.1,
+                  "dynamic_type": "Dynamic",
+                  "collider_type": {
+                    "Cube": {
+                      "width": 1.5,
+                      "length": 2,
+                      "height": 0.25
+                    }
+                  }
+                },
+                "config": null,
+                "offset": [
+                  0,
+                  0,
+                  0
+                ],
+                "id": "999625ab-5fb3-4622-ad76-b4e0001de11d",
+                "name": "Joint"
+              },
+              "debug": false,
+              "id": "86d7163e-a516-4ed3-84aa-0385e741097f"
+            }
+          },
+          {
             "PlayerMovementComponent": {
-              "down_vector": [
-                0,
-                1,
-                0
-              ]
+              "deceleration": 150,
+              "max_velocity": 2000,
+              "acceleration": 200,
+              "rotation_speed": 110,
+              "min_height_from_surface": 0.02,
+              "max_height_from_surface": 0.35,
+              "height_from_surface_speed": 6
             }
           }
         ]
@@ -296,81 +287,6 @@
         },
         "components": []
       },
-      "a26c6bc9-1220-41bb-9d34-474b34ba2d2f": {
-        "id": "a26c6bc9-1220-41bb-9d34-474b34ba2d2f",
-        "tag": {
-          "name": "Track Collider"
-        },
-        "transform": {
-          "translation": [
-            0,
-            0,
-            0
-          ],
-          "rotation": [
-            0,
-            0,
-            0
-          ],
-          "scale": [
-            1,
-            1,
-            1
-          ]
-        },
-        "components": [
-          {
-            "PhysicsComponent": {
-              "id": "a8b88255-120d-4c97-b28c-19d0dc2512d7",
-              "delta_translation": [
-                0,
-                0,
-                0
-              ],
-              "delta_rotation": [
-                0,
-                0,
-                0
-              ],
-              "debug": false,
-              "joint": {
-                "id": "bc878291-d21b-4a8b-a000-00612f309ddb",
-                "name": "New Joint",
-                "offset": [
-                  0,
-                  0,
-                  0
-                ],
-                "body": {
-                  "id": "2b5e5204-4d23-448e-938b-756d029f2676",
-                  "dynamic_type": "Static",
-                  "collider_type": {
-                    "Trimesh": {
-                      "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5"
-                    }
-                  },
-                  "density": 1,
-                  "friction": 1,
-                  "restitution": 1,
-                  "allow_translation": [
-                    true,
-                    true,
-                    true
-                  ],
-                  "allow_rotation": [
-                    true,
-                    true,
-                    true
-                  ],
-                  "ccd": false
-                },
-                "config": null,
-                "joints": []
-              }
-            }
-          }
-        ]
-      },
       "751e6183-9da5-4f5e-86ab-3e09cb28c8b1": {
         "id": "751e6183-9da5-4f5e-86ab-3e09cb28c8b1",
         "tag": {
@@ -437,6 +353,70 @@
             }
           }
         ]
+      },
+      "c7c24b60-e852-4657-889d-ef7e7ac06675": {
+        "id": "c7c24b60-e852-4657-889d-ef7e7ac06675",
+        "tag": {
+          "name": "Terrain Collider"
+        },
+        "transform": {
+          "translation": [
+            0,
+            -1.5,
+            -2
+          ],
+          "rotation": [
+            0,
+            5.59,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "components": [
+          {
+            "PhysicsComponent": {
+              "joint": {
+                "body": {
+                  "allow_rotation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "restitution": 0.1,
+                  "friction": 0.1,
+                  "density": 1,
+                  "collider_type": {
+                    "Trimesh": {
+                      "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5"
+                    }
+                  },
+                  "id": "5cf58c9e-934d-4bbf-bf79-8e1d42c96514",
+                  "dynamic_type": "Dynamic",
+                  "allow_translation": [
+                    true,
+                    true,
+                    true
+                  ],
+                  "ccd": true
+                },
+                "id": "42ae26a6-35dc-412d-a630-fe067f4db2c4",
+                "offset": [
+                  0,
+                  0,
+                  0
+                ],
+                "config": null,
+                "name": "Joint"
+              },
+              "id": "a9c7f1d1-cbd0-4eb3-8791-9df25b3b6be4",
+              "debug": false
+            }
+          }
+        ]
       }
     },
     "models": {
@@ -456,12 +436,6 @@
         "id": "4fa40667-f8c0-4e39-b19b-3f86decf3f06",
         "maxInstances": 10,
         "source": "models/skysurfer/skysurfer.gltf",
-        "submeshes": []
-      },
-      "609ff27f-a8f3-42ac-8d15-26d089191dd5": {
-        "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
-        "maxInstances": 10,
-        "source": "models/Track02/Collision/C_Track02.gltf",
         "submeshes": []
       },
       "a009c964-dbec-4646-9db6-567f2c64b9a1": {
@@ -495,7 +469,12 @@
         "submeshes": []
       }
     },
-    "trimeshes": {},
+    "trimeshes": {
+      "609ff27f-a8f3-42ac-8d15-26d089191dd5": {
+        "id": "609ff27f-a8f3-42ac-8d15-26d089191dd5",
+        "source": "models/Track02/Collision/C_Track02.gltf"
+      }
+    },
     "textures": {
       "51223134-95d7-4784-a7e2-fe0a0f3acf0a": {
         "id": "51223134-95d7-4784-a7e2-fe0a0f3acf0a",

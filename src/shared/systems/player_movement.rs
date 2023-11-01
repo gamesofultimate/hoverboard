@@ -27,14 +27,6 @@ use nalgebra::Rotation3;
 
 use nalgebra::Vector3;
 
-const PLAYER_MAX_VELOCITY: f32 = 2000.0;
-const PLAYER_ACCELERATION: f32 = 200.0;
-const ROTATION_SPEED: f32 = 110.0;
-const MIN_HEIGHT_FROM_SURFACE: f32 = 0.02;
-const MAX_HEIGHT_FROM_SURFACE: f32 = 0.35;
-const HEIGHT_FROM_SURFACE_SPEED: f32 = 6.0;
-const PLAYER_DECELERATION: f32 = 150.0;
-
 pub struct PlayerMovementSystem {
   inputs: InputsReader<PlayerInput>,
   physics_controller: PhysicsController,
@@ -85,17 +77,19 @@ impl System for PlayerMovementSystem {
 }
 
 impl PlayerMovementSystem {
-  fn accelerate(&mut self, forward_input: f32, delta_time: f32) {
+  fn accelerate(
+    &mut self,
+    forward_input: f32,
+    player_movement: &PlayerMovementComponent,
+    delta_time: f32,
+  ) {
     if forward_input != 0.0 {
-      if self.current_velocity >= PLAYER_MAX_VELOCITY {
-        self.current_velocity = PLAYER_MAX_VELOCITY;
-      } else if self.current_velocity <= -PLAYER_MAX_VELOCITY {
-        self.current_velocity = -PLAYER_MAX_VELOCITY;
-      } else {
-        self.current_velocity += PLAYER_ACCELERATION * delta_time * forward_input;
-      }
+      self.current_velocity += player_movement.acceleration * delta_time * forward_input;
+      self.current_velocity = self
+        .current_velocity
+        .clamp(-player_movement.max_velocity, player_movement.max_velocity);
     } else {
-      self.decelerate(delta_time);
+      self.decelerate(player_movement, delta_time);
     }
   }
 
@@ -106,14 +100,14 @@ impl PlayerMovementSystem {
     }
   }
 
-  fn decelerate(&mut self, delta_time: f32) {
+  fn decelerate(&mut self, player_movement: &PlayerMovementComponent, delta_time: f32) {
     if self.current_velocity > 0.0 {
-      self.current_velocity -= PLAYER_DECELERATION * delta_time;
+      self.current_velocity -= player_movement.deceleration * delta_time;
       if self.current_velocity < 0.0 {
         self.current_velocity = 0.0;
       }
     } else if self.current_velocity < 0.0 {
-      self.current_velocity += PLAYER_DECELERATION * delta_time;
+      self.current_velocity += player_movement.deceleration * delta_time;
       if self.current_velocity > 0.0 {
         self.current_velocity = 0.0;
       }
@@ -131,17 +125,17 @@ impl PlayerMovementSystem {
 
       let transform_direction = transform.get_euler_direction();
 
-      self.accelerate(forward_input, delta_time);
+      self.accelerate(forward_input, player_component, delta_time);
       self.physics_controller.set_linvel(
         physics,
         transform_direction.into_inner() * self.current_velocity * delta_time * forward_input,
       );
 
       // TODO: this needs to take into account the player's entire rotation, not just y
-      let player_up = player_component.down_vector;
+      let player_up = -player_component.down_vector;
       self.physics_controller.set_angvel(
         physics,
-        player_up * ROTATION_SPEED * delta_time * right_input,
+        player_up * player_component.rotation_speed * delta_time * right_input,
       );
     }
   }
@@ -152,12 +146,10 @@ impl PlayerMovementSystem {
       &mut PhysicsComponent,
       &mut TransformComponent,
     )>() {
-      // I thought maybe cancelling "hover" effect would help with the jittering, but it doesn't seem to?
-      if self.current_velocity < 0.001 && self.current_velocity > -0.001 {
-        return;
-      }
+      let height_delta =
+        player_component.max_height_from_surface - player_component.min_height_from_surface;
 
-      let height_delta = MAX_HEIGHT_FROM_SURFACE - MIN_HEIGHT_FROM_SURFACE;
+      log::info!("{:?}", player_component);
 
       let player_up = -player_component.down_vector;
 
@@ -188,8 +180,9 @@ impl PlayerMovementSystem {
         physics,
         old_linvel
           + player_up
-            * (f32::sin(self.running_time * HEIGHT_FROM_SURFACE_SPEED) * height_delta
-              + MIN_HEIGHT_FROM_SURFACE),
+            * (f32::sin(self.running_time * player_component.height_from_surface_speed)
+              * height_delta
+              + player_component.min_height_from_surface),
       );
     }
   }
